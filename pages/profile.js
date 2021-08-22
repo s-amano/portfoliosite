@@ -1,8 +1,8 @@
+import { client } from '../libs/client';
 import Layout from '../components/Layout';
 import SkillSheet from '../components/SkillSheet';
-import Image from 'next/image';
 
-export default function profile() {
+export default function profile({ skill }) {
   return (
     <Layout title="profile">
       <div className="bg-white text-left shadow-xl p-8 w-96 rounded-xl m-6">
@@ -15,11 +15,19 @@ export default function profile() {
           <p className="text-xs mt-2 ml-2 text-gray-600">野球観戦/ミステリー小説・映画/カラオケ/猫</p>
         </div>
       </div>
-      <p className="mt-6 text-2xl">スキルカード</p>
-      <div className="flex w-9/12 justify-center flex-wrap content-between pl-3 mt-4">
-        <SkillSheet />
-        <SkillSheet />
+      <p className="m-6 text-2xl">スキルカード</p>
+      <div className="flex w-9/12 justify-center flex-wrap content-between pl-3 m-4">
+        <SkillSheet skill={skill} />
       </div>
     </Layout>
   );
 }
+
+export const getStaticProps = async () => {
+  const data = await client.get({ endpoint: 'skill' });
+  return {
+    props: {
+      skill: data.contents,
+    },
+  };
+};
