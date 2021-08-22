@@ -1,10 +1,18 @@
 import { client } from '../../libs/client';
 import Layout from '../../components/Layout';
+import Seo from '../../components/Seo';
 import Image from 'next/image';
 
 export default function BlogId({ blog }) {
   return (
     <Layout title="blog">
+      <Seo
+        pageTitle={blog.title}
+        pageDescription={blog.body}
+        pageImg={blog.image.url}
+        pageImgWidth={1280}
+        pageImgHeight={960}
+      />
       <div className="mx-8 my-6 flex flex-1 justify-center items-center flex-col w-screen max-w-2xl">
         <div className="border-b-2 border-gray-700 m-8">
           <p className="text-3xl">{blog.title}</p>
