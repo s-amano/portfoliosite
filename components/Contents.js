@@ -9,7 +9,7 @@ export default function Contents({ contents, contentName }) {
   return (
     <>
       <p className="text-3xl my-8 text-black">{`${content_name}一覧`}</p>
-      <div className="flex w-10/12 justify-center flex-wrap content-between">
+      <div className="flex w-max-10/12 justify-center flex-wrap content-between">
         {contents.map((content) => {
           const maxLength = 30;
           if (content.title.length > maxLength) {

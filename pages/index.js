@@ -1,11 +1,13 @@
 import { client } from '../libs/client';
 import Layout from '../components/Layout';
+import Seo from '../components/Seo';
 import ProfileCard from '../components/ProfileCard';
 import Contents from '../components/Contents';
 
 export default function Home({ blog }) {
   return (
     <Layout title="Home">
+      <Seo />
       <ProfileCard />
       <Contents contents={blog} contentName={'blogs'} />
     </Layout>
