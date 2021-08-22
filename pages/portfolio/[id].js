@@ -19,7 +19,7 @@ export default function PortfolioId({ portfolio }) {
         </div>
 
         <div className="mt-6 mx-4">
-          <Image className="rounded-3xl" src={portfolio.image.url} width={700} height={400}></Image>
+          <Image className="rounded-3xl" src={portfolio.image.url} width={500} height={300}></Image>
         </div>
 
         <div
