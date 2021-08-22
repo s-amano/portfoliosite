@@ -14,7 +14,7 @@ export default function ProfileCard() {
             <p className="font-bold mt-3">E-mail</p>
             <p className="text-xs mt-2 text-gray-600">amahaya0831[at]gmail.com</p>
             <p className="font-bold mt-3">ひとこと</p>
-            <p className="text-xs mt-2 text-gray-600">dev</p>
+            <p className="text-xs mt-2 text-gray-600">(猫の)名前はまだない</p>
           </div>
           <div className="mt-6 flex justify-around">
             <div>
