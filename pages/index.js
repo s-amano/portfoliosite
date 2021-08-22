@@ -3,13 +3,15 @@ import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 import ProfileCard from '../components/ProfileCard';
 import Contents from '../components/Contents';
+import { Pagination } from '../components/Pagination';
 
-export default function Home({ blog }) {
+export default function Home({ blog, totalCount }) {
   return (
     <Layout title="Home">
       <Seo />
       <ProfileCard />
       <Contents contents={blog} contentName={'blogs'} />
+      <Pagination currentPageNumber={1} maxPageNumber={Math.ceil(totalCount / 4)} />
     </Layout>
   );
 }
