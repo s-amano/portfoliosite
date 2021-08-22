@@ -12,8 +12,8 @@ export default function Layout({ children, title = 'TOP' }) {
                 <a className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded">Home</a>
               </Link>
 
-              <Link href="/">
-                <a className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded">Blog</a>
+              <Link href="/profile">
+                <a className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded">Profile</a>
               </Link>
 
               <Link href="/portfolio">
