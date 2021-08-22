@@ -5,7 +5,8 @@ import SkillSheet from '../components/SkillSheet';
 export default function profile({ skill }) {
   return (
     <Layout title="profile">
-      <div className="bg-white text-left shadow-xl p-8 w-96 rounded-xl m-6">
+      <p className="mt-6 text-3xl text-black">基本情報</p>
+      <div style={{ maxWidth: '90%' }} className="bg-white text-left shadow-xl p-6 w-96 rounded-xl m-6">
         <div>
           <p className="font-bold">Name</p>
           <p className="text-xs mt-2 ml-2 text-gray-600">天野心太郎</p>
@@ -15,7 +16,7 @@ export default function profile({ skill }) {
           <p className="text-xs mt-2 ml-2 text-gray-600">野球観戦/ミステリー小説・映画/カラオケ/猫</p>
         </div>
       </div>
-      <p className="m-6 text-2xl">スキルカード</p>
+      <p className="mt-6 text-3xl text-black">スキルカード</p>
       <div className="flex w-9/12 justify-center flex-wrap content-between pl-3 m-4">
         <SkillSheet skill={skill} />
       </div>
