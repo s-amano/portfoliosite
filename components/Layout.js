@@ -15,6 +15,10 @@ export default function Layout({ children, title = 'TOP' }) {
               <Link href="/">
                 <a className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded">Blog</a>
               </Link>
+
+              <Link href="/portfolio">
+                <a className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded">Portfolio</a>
+              </Link>
             </div>
           </div>
         </nav>
