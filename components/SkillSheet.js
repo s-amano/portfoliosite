@@ -6,7 +6,7 @@ export default function SkillSheet({ skill }) {
       {skill.map((skill) => {
         return (
           <div className="flex relative text-left bg-white mx-6 w-96 rounded-xl shadow-xl px-8 py-4 mx-4 my-8">
-            <div>
+            <div className="w-64">
               <div className="absolute -top-4 left-2">
                 <p className="text-2xl font-bold border-b-2 border-gray-700">{skill.title}</p>
               </div>
@@ -20,7 +20,12 @@ export default function SkillSheet({ skill }) {
               </div>
             </div>
             <div>
-              <Image src={skill.image.url} width={62} height={72} alt="Avatar" />
+              <Image
+                src={skill.image.url}
+                width={60}
+                height={(60 * skill.image.height) / skill.image.width}
+                alt="Avatar"
+              />
             </div>
           </div>
         );
