@@ -19,11 +19,11 @@ export default function SkillSheet({ skill }) {
                 <p className="text-xs mt-2 ml-2 text-gray-600">{skill.supplement}</p>
               </div>
             </div>
-            <div>
+            <div className="mt-4">
               <Image
                 src={skill.image.url}
-                width={60}
-                height={(60 * skill.image.height) / skill.image.width}
+                width={50}
+                height={(50 * skill.image.height) / skill.image.width}
                 alt="Avatar"
               />
             </div>
