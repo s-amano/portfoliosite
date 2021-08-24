@@ -2,10 +2,19 @@ import { client } from '../../libs/client';
 import Layout from '../../components/Layout';
 import Seo from '../../components/Seo';
 import Image from 'next/image';
+import Link from 'next/link';
 
-export default function BlogId({ blog }) {
+export default function BlogId({ blog, draftKey }) {
   return (
     <Layout title="blog">
+      {draftKey && (
+        <p className={'bg-yellow-100 text-yellow-900 p-4 text-center'}>
+          プレビュー表示がONになっています。
+          <Link href={`/api/exitPreview`}>
+            <a className="underline">プレビュー表示をOFFにする</a>
+          </Link>
+        </p>
+      )}
       <Seo
         pageTitle={blog.title}
         pageDescription={blog.body}
