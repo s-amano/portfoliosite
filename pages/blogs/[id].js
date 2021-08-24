@@ -10,7 +10,7 @@ export default function BlogId({ blog, draftKey }) {
       {draftKey && (
         <p className={'bg-yellow-100 text-yellow-900 p-4 text-center'}>
           プレビュー表示がONになっています。
-          <Link href={`/api/exitPreview`}>
+          <Link href={`/api/exitPreview?id=${blog.id}`}>
             <a className="underline">プレビュー表示をOFFにする</a>
           </Link>
         </p>
