@@ -1,6 +1,14 @@
 import Image from 'next/image';
 
 export default function ProfileCard() {
+  const comments = [
+    '(猫の)名前はまだない',
+    '巨人の肩の上に立つ',
+    '車輪の再発明',
+    '最近読んだ小説は「葉桜の季節に君を想うということ」',
+    '最近観た映画は「トランス・ワールド」',
+  ];
+  const randomComment = comments[Math.floor(Math.random() * comments.length)];
   return (
     <div className="flex w-full justify-center flex-wrap content-between">
       <div className="bg-white text-center shadow-xl p-8 w-80 rounded-xl m-6">
@@ -13,8 +21,8 @@ export default function ProfileCard() {
             <p className="text-xs mt-2 text-gray-600">tenshin</p>
             <p className="font-bold mt-3">E-mail</p>
             <p className="text-xs mt-2 text-gray-600">amahaya0831[at]gmail.com</p>
-            <p className="font-bold mt-3">ひとこと</p>
-            <p className="text-xs mt-2 text-gray-600">(猫の)名前はまだない</p>
+            <p className="font-bold mt-3">ランダム配信ひとこと</p>
+            <p className="text-xs mt-2 text-gray-600">{randomComment}</p>
           </div>
           <div className="mt-6 flex justify-around">
             <div>
