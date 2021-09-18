@@ -26,7 +26,9 @@ export default function Layout({ children, title = 'TOP' }) {
       <main className="flex flex-1 justify-center items-center flex-col w-screen">{children}</main>
       <footer className="w-full h-20 flex justify-center items-center border-t border-gray-300 mb-2 mt-10">
         <Link className="flex items-center" href="/" target="_blank" rel="noopener noreferrer">
-          <Image className="rounded-lg" src="/my_original.jpg" alt="profile" width={42} height={42} />
+          <a>
+            <Image className="rounded-lg" src="/my_original.jpg" alt="profile" width={42} height={42} />
+          </a>
         </Link>
       </footer>
     </div>

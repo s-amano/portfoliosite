@@ -21,24 +21,26 @@ export default function Contents({ contents, contentName }) {
           date = date.substring(0, 10);
           return (
             <Link key={content.id} href={`/${contentName}/${content.id}`}>
-              <div className="text-center m-6 flex h-20 w-80 rounded-3xl">
-                <div className="h-20 w-20">
-                  <Image
-                    className="rounded-3xl"
-                    src={content.image.url}
-                    width={80}
-                    height={80}
-                    objectFit="cover"
-                    alt="contentimg"
-                  />
-                </div>
-                <div className="px-4 w-56">
-                  <p className="text-sm text-left font-bold">{content.title}</p>
-                  <div className="flex pl-2 mt-1 justify-between items-center">
-                    <div className="h-7 p-1 w-52 text-left text-xs text-gray-500">{date}</div>
+              <a>
+                <div className="text-center m-6 flex h-20 w-80 rounded-3xl">
+                  <div className="h-20 w-20">
+                    <Image
+                      className="rounded-3xl"
+                      src={content.image.url}
+                      width={80}
+                      height={80}
+                      objectFit="cover"
+                      alt="contentimg"
+                    />
+                  </div>
+                  <div className="px-4 w-56">
+                    <p className="text-sm text-left font-bold">{content.title}</p>
+                    <div className="flex pl-2 mt-1 justify-between items-center">
+                      <div className="h-7 p-1 w-52 text-left text-xs text-gray-500">{date}</div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </a>
             </Link>
           );
         })}
