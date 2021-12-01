@@ -8,7 +8,7 @@ export default function profile({ skill }) {
       <p className="mt-6 text-3xl text-black">基本情報</p>
       <div style={{ maxWidth: '90%' }} className="bg-white text-left shadow-xl p-6 w-96 rounded-xl m-6">
         <div>
-          <p className="font-bold">Name</p>
+          <p className="font-bold">名前</p>
           <p className="text-xs mt-2 ml-2 text-gray-600">天野心太郎</p>
           <p className="font-bold mt-3">所属</p>
           <p className="text-xs mt-2 ml-2 text-gray-600">慶應義塾大学商学部商学科</p>
