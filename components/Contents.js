@@ -2,13 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function Contents({ contents, contentName }) {
-  let content_name = "制作物";
-  if (contentName == "blogs") {
-    content_name = "ブログ";
-  }
   return (
     <>
-      <p className="text-3xl my-8 text-black">{`${content_name}一覧`}</p>
       <div className="flex w-9/12 justify-center flex-wrap content-between pl-3 lg:w-2/3 xl:w-1/2">
         {contents.map((content) => {
           const maxLength = 30;

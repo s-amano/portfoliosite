@@ -1,15 +1,11 @@
-import { client } from "../libs/client";
-import Layout from "../components/Layout";
-import Seo from "../components/Seo";
-import ProfileCard from "../components/ProfileCard";
-import Contents from "../components/Contents";
-import { Pagination } from "../components/Pagination";
+import Layout from "../../components/Layout";
+import Contents from "../../components/Contents";
+import { client } from "../../libs/client";
+import { Pagination } from "../../components/Pagination";
 
-export default function Home({ blog, totalCount }) {
+export default function BlogPage({ blog, totalCount }) {
   return (
-    <Layout title="Home">
-      <Seo />
-      <ProfileCard />
+    <Layout title="BlogPage">
       <p className="text-3xl mt-8 text-black">ブログ一覧</p>
       <Contents contents={blog} contentName={"blogs"} />
       <Pagination
