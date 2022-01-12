@@ -6,29 +6,35 @@ export default function Layout({ children, title = "TOP" }) {
     <div className="flex justify-center items-center flex-col min-h-screen text-gray-600 text-sm font-mono bg-blue-50">
       <header className="mb-8">
         <nav className="bg-gray-800 w-screen">
-          <div className="flex items-center pl-8 h-14">
+          <div className="flex items-center pl-4 md:pl-8 h-14">
             <div className="flex space-x-4">
               <Link href="/">
-                <a className="text-gray-300 hover:bg-gray-700 px-2 py-2 rounded">
-                  Home
+                <a className="text-gray-300 hover:bg-gray-700 p-1 rounded md:p-2">
+                  HOME
                 </a>
               </Link>
 
               <Link href="/profile">
-                <a className="text-gray-300 hover:bg-gray-700 px-2 py-2 rounded">
-                  Profile
+                <a className="text-gray-300 hover:bg-gray-700 p-1 rounded md:p-2">
+                  PROFILE
                 </a>
               </Link>
 
               <Link href="/blogs">
-                <a className="text-gray-300 hover:bg-gray-700 px-2 py-2 rounded">
-                  Blog
+                <a className="text-gray-300 hover:bg-gray-700 p-1 rounded md:p-2">
+                  BLOG
+                </a>
+              </Link>
+
+              <Link href="/tags">
+                <a className="text-gray-300 hover:bg-gray-700 p-1 rounded md:p-2">
+                  TAG
                 </a>
               </Link>
 
               <Link href="/portfolio">
-                <a className="text-gray-300 hover:bg-gray-700 px-2 py-2 rounded">
-                  Portfolio
+                <a className="text-gray-300 hover:bg-gray-700 py-1 rounded md:p-2">
+                  PORTFOLIO
                 </a>
               </Link>
             </div>
