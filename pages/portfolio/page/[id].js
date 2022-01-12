@@ -15,6 +15,7 @@ export default function PortfolioPageId({
       <Pagination
         currentPageNumber={currentPageNumber}
         maxPageNumber={Math.ceil(totalCount / 4)}
+        whatPage={"portfolio"}
       />
     </Layout>
   );

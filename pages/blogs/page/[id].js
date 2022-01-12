@@ -11,6 +11,7 @@ export default function BlogPageId({ blog, totalCount, currentPageNumber }) {
       <Pagination
         currentPageNumber={currentPageNumber}
         maxPageNumber={Math.ceil(totalCount / 4)}
+        whatPage={"blogs"}
       />
     </Layout>
   );
