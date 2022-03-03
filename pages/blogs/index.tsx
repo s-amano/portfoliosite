@@ -5,7 +5,6 @@ import { client } from "../../libs/client";
 import { Pagination } from "../../components/Pagination";
 import { BlogType, TagType } from "types";
 import useMedia from "use-media";
-import { BlogIdComponent } from "components/BlogIdComponent";
 import { SidebarWrapLayout } from "components/SidebarWrapLayout";
 import { useMemo } from "react";
 import { BlogList } from "components/BlogList";
@@ -91,7 +90,7 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       blog: data.contents,
-      totalCount: data.totalCount,
+      totalCount: Number(data.totalCount),
       tags: tags,
       latestDataBlog: latestDataBlog.contents,
     },

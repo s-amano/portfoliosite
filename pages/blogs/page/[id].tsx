@@ -3,26 +3,69 @@ import { client } from "../../../libs/client";
 import { Layout } from "../../../components/Layout";
 import { Contents } from "../../../components/Contents";
 import { Pagination } from "../../../components/Pagination";
-import { BlogType } from "types";
+import { BlogType, TagType } from "types";
+import useMedia from "use-media";
+import { BlogList } from "components/BlogList";
+import { SidebarWrapLayout } from "components/SidebarWrapLayout";
+import { useMemo } from "react";
 
 interface Props {
   blog: BlogType[];
   totalCount: number;
   currentPageNumber: number;
+  tags: TagType[];
+  latestDataBlog: BlogType[];
 }
 
+const PER_PAGE = 8;
+
 export const BlogPageId: NextPage<Props> = (props: Props) => {
-  const { blog, totalCount, currentPageNumber } = props;
+  const { blog, totalCount, currentPageNumber, tags, latestDataBlog } = props;
+
+  const isWide = useMedia({ minWidth: "700px" });
+  const sortedTag = useMemo(() => {
+    return tags.sort((a, b) => {
+      return a.name < b.name ? -1 : 1;
+    });
+  }, [tags]);
+
+  const memorizedBlogList = useMemo(
+    () => (
+      <div className="flex items-center flex-col mt-4 md:w-2/3 xl:w-3/4">
+        <BlogList blogs={blog} />
+        <Pagination
+          currentPageNumber={currentPageNumber}
+          maxPageNumber={Math.ceil(totalCount / PER_PAGE)}
+          whatPage={"blogs"}
+        />
+      </div>
+    ),
+    [blog, currentPageNumber, totalCount]
+  );
+
   return (
     <Layout pageTitle="blogPagination">
       <>
-        <p className="text-3xl mt-8 text-black">ブログ一覧</p>
-        <Contents contents={blog} contentName={"blogs"} />
-        <Pagination
-          currentPageNumber={currentPageNumber}
-          maxPageNumber={Math.ceil(totalCount / 4)}
-          whatPage={"blogs"}
-        />
+        <div className="w-screen">
+          <div className="mt-16 mx-4 mb-16">
+            <p className="text-center text-4xl text-black">BLOG</p>
+          </div>
+
+          {isWide ? (
+            <SidebarWrapLayout
+              latestDataBlog={latestDataBlog}
+              sortedTag={sortedTag}
+            >
+              {memorizedBlogList}
+            </SidebarWrapLayout>
+          ) : (
+            <Pagination
+              currentPageNumber={currentPageNumber}
+              maxPageNumber={Math.ceil(totalCount / PER_PAGE)}
+              whatPage={"blogs"}
+            />
+          )}
+        </div>
       </>
     </Layout>
   );
@@ -34,7 +77,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const data = await client.get({ endpoint: "blogs" });
 
   const { totalCount } = data;
-  const paths = range(1, Math.ceil(totalCount / 4)).map(
+  const paths = range(1, Math.ceil(totalCount / PER_PAGE)).map(
     (i) => `/blogs/page/${i}`
   );
   return { paths, fallback: false };
@@ -46,16 +89,38 @@ export const getStaticProps: GetStaticProps = async (
   props: Props;
 }> => {
   const numId = Number(context.params?.id);
-  const offset = (numId - 1) * 4;
-  const limit = 4;
+  const offset = (numId - 1) * PER_PAGE;
+  const limit = PER_PAGE;
   const queries = { offset: offset, limit: limit };
   const data = await client.get({ endpoint: "blogs", queries: queries });
+
+  const tagData = await await client.get({
+    endpoint: "tags",
+    queries: { limit: 1000 },
+  });
+
+  const tags = await Promise.all(
+    tagData.contents.map(async (tag: TagType) => {
+      const blog = await await client.get({
+        endpoint: "blogs",
+        queries: { filters: `tags[contains]${tag.id}` },
+      });
+      return { ...tag, count: blog.totalCount };
+    })
+  );
+
+  const latestDataBlog = await client.get({
+    endpoint: "blogs",
+    queries: { limit: 8 },
+  });
 
   return {
     props: {
       blog: data.contents,
-      totalCount: data.totalCount,
+      totalCount: Number(data.totalCount),
       currentPageNumber: numId,
+      tags: tags,
+      latestDataBlog: latestDataBlog.contents,
     },
   };
 };
