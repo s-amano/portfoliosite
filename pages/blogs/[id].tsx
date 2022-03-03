@@ -93,7 +93,7 @@ export const getStaticPaths = async () => {
   return { paths, fallback: false };
 };
 
-export const getStaticProps = async (
+export const getStaticProps: GetStaticProps = async (
   context
 ): Promise<{
   props: Props;
