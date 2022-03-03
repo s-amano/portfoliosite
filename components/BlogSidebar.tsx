@@ -1,7 +1,5 @@
 import React from "react";
 import { BlogType } from "types";
-// import { LatestBlogList } from "components/LatestBlogList";
-// import { TagList } from "components/TagList";
 import { TagType } from "types";
 import Link from "next/link";
 import Image from "next/image";
