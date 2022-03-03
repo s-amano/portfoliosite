@@ -30,6 +30,7 @@ export const PortfolioId: NextPage<Props> = (props: Props) => {
               src={portfolio.image.url}
               width={500}
               height={300}
+              alt={"portfolioimg"}
             ></Image>
           </div>
 
