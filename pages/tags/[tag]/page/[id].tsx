@@ -1,6 +1,6 @@
 import { client } from "../../../../libs/client";
 import { Layout } from "../../../../components/Layout";
-import Contents from "../../../../components/Contents";
+import { Contents } from "../../../../components/Contents";
 import { Pagination } from "../../../../components/Pagination";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { BlogType, TagType } from "types";

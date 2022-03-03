@@ -1,14 +1,13 @@
 import { GetStaticProps, NextPage } from "next";
 import { client } from "../libs/client";
 import { Layout } from "../components/Layout";
-import Seo from "../components/Seo";
 import { ProfileCard } from "../components/ProfileCard";
-import Contents from "../components/Contents";
+import { Contents } from "../components/Contents";
 import { Pagination } from "../components/Pagination";
 import { BlogType } from "types";
 
 interface Props {
-  blog: BlogType;
+  blog: BlogType[];
   totalCount: number;
 }
 
