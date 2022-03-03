@@ -4,16 +4,19 @@ import { client } from "../../libs/client";
 import { Layout } from "../../components/Layout";
 import Image from "next/image";
 import Link from "next/link";
-import { BlogType } from "types";
+import { BlogType, TagType } from "types";
 import { BlogIdComponent } from "components/BlogIdComponent";
+import { BlogSidebar } from "components/BlogSidebar";
 
 interface Props {
   blog: BlogType;
+  latestDataBlog: BlogType[];
   preview: boolean;
+  tags: TagType[];
 }
 
 export const BlogId: NextPage<Props> = (props: Props) => {
-  const { blog, preview } = props;
+  const { blog, preview, latestDataBlog, tags } = props;
   const tagsComponent = useMemo(() => {
     return (
       blog.tags &&
@@ -30,6 +33,13 @@ export const BlogId: NextPage<Props> = (props: Props) => {
       })
     );
   }, [blog]);
+
+  const sortedTag = useMemo(() => {
+    return tags.sort((a, b) => {
+      return a.name < b.name ? -1 : 1;
+    });
+  }, [tags]);
+
   return (
     <Layout pageTitle="blog">
       <>
@@ -41,9 +51,12 @@ export const BlogId: NextPage<Props> = (props: Props) => {
             </Link>
           </p>
         )}
-        <div className="flex justify-center md:max-w-[1024px] xl:max-w-[1224px]  mt-20">
-          <div className="flex flex-col md:w-2/3 xl:w-3/4">
+        <div className="flex flex-start mx-auto md:max-w-[1024px] xl:max-w-[1224px] mt-20">
+          <div className="flex flex-col md:w-2/3 xl:w-3/4 mr-4">
             <BlogIdComponent blog={blog} tagsComponent={tagsComponent} />
+          </div>
+          <div className="md:w-1/3 xl:w-1/4">
+            <BlogSidebar latestBlog={latestDataBlog} sortedTag={sortedTag} />
           </div>
         </div>
       </>
@@ -81,12 +94,34 @@ export const getStaticProps: GetStaticProps = async (
         })
       : null;
 
+  const tagData = await await client.get({
+    endpoint: "tags",
+    queries: { limit: 1000 },
+  });
+
+  const tags = await Promise.all(
+    tagData.contents.map(async (tag: TagType) => {
+      const blog = await await client.get({
+        endpoint: "blogs",
+        queries: { filters: `tags[contains]${tag.id}` },
+      });
+      return { ...tag, count: blog.totalCount };
+    })
+  );
+
+  const latestDataBlog = await client.get({
+    endpoint: "blogs",
+    queries: { limit: 8 },
+  });
+
   const preview = draftKey.draftKey ? true : false;
 
   return {
     props: {
       blog: data,
+      latestDataBlog: latestDataBlog.contents,
       preview: preview,
+      tags: tags,
     },
   };
 };

@@ -75,10 +75,10 @@ export const Layout: React.FC<Props> = React.memo((props: Props) => {
       </main>
       <footer className="w-full h-20 flex justify-center items-center border-t border-gray-300 mb-2 mt-10">
         <Link href="/">
-          <a target={"_blank"}>
+          <a>
             <Image
               className="rounded-lg"
-              src="/my_original.jpg"
+              src="/nekonew.png"
               alt="profile"
               width={42}
               height={42}
