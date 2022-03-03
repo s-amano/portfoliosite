@@ -8,6 +8,7 @@ import useMedia from "use-media";
 import { BlogList } from "components/BlogList";
 import { SidebarWrapLayout } from "components/SidebarWrapLayout";
 import { useMemo } from "react";
+import { MobileBlogList } from "components/MobileBlogList";
 
 interface Props {
   blog: BlogType[];
@@ -31,7 +32,7 @@ export const BlogPageId: NextPage<Props> = (props: Props) => {
 
   const memorizedBlogList = useMemo(
     () => (
-      <div className="flex items-center flex-col mt-4 md:w-2/3 xl:w-3/4">
+      <div className="flex items-center flex-col md:w-2/3 xl:w-3/4 mt-4">
         <BlogList blogs={blog} />
         <Pagination
           currentPageNumber={currentPageNumber}
@@ -47,7 +48,7 @@ export const BlogPageId: NextPage<Props> = (props: Props) => {
     <Layout pageTitle="blogPagination">
       <>
         <div className="w-screen">
-          <div className="mt-16 mx-4 mb-16">
+          <div className="mt-16 mx-4 md:mb-16">
             <p className="text-center text-4xl text-black">BLOG</p>
           </div>
 
@@ -59,11 +60,14 @@ export const BlogPageId: NextPage<Props> = (props: Props) => {
               {memorizedBlogList}
             </SidebarWrapLayout>
           ) : (
-            <Pagination
-              currentPageNumber={currentPageNumber}
-              maxPageNumber={Math.ceil(totalCount / PER_PAGE)}
-              whatPage={"blogs"}
-            />
+            <div className="flex flex-col justify-center items-center mt-4">
+              <MobileBlogList blog={blog} />
+              <Pagination
+                currentPageNumber={currentPageNumber}
+                maxPageNumber={Math.ceil(totalCount / PER_PAGE)}
+                whatPage={"blogs"}
+              />
+            </div>
           )}
         </div>
       </>

@@ -8,6 +8,7 @@ import useMedia from "use-media";
 import { SidebarWrapLayout } from "components/SidebarWrapLayout";
 import { useMemo } from "react";
 import { BlogList } from "components/BlogList";
+import { MobileBlogList } from "components/MobileBlogList";
 
 interface Props {
   blog: BlogType[];
@@ -27,11 +28,25 @@ export const BlogPage: NextPage<Props> = (props: Props) => {
     });
   }, [tags]);
 
+  const memorizedBlogList = useMemo(
+    () => (
+      <div className="flex flex-col justify-center items-center mt-4">
+        <MobileBlogList blog={blog} />
+        <Pagination
+          currentPageNumber={1}
+          maxPageNumber={Math.ceil(totalCount / PER_PAGE)}
+          whatPage={"blogs"}
+        />
+      </div>
+    ),
+    [blog, totalCount]
+  );
+
   return (
     <Layout pageTitle="BlogPage">
       <>
         <div className="w-screen">
-          <div className="mt-16 mx-4 mb-16">
+          <div className="mt-16 mx-4 md:mb-16">
             <p className="text-center text-4xl text-black">BLOG</p>
           </div>
 
@@ -40,21 +55,17 @@ export const BlogPage: NextPage<Props> = (props: Props) => {
               latestDataBlog={latestDataBlog}
               sortedTag={sortedTag}
             >
-              <div className="flex items-center flex-col mt-4 md:w-2/3 xl:w-3/4">
-                <BlogList blogs={blog} />
-                <Pagination
-                  currentPageNumber={1}
-                  maxPageNumber={Math.ceil(totalCount / PER_PAGE)}
-                  whatPage={"blogs"}
-                />
-              </div>
+              {memorizedBlogList}
             </SidebarWrapLayout>
           ) : (
-            <Pagination
-              currentPageNumber={1}
-              maxPageNumber={Math.ceil(totalCount / PER_PAGE)}
-              whatPage={"blogs"}
-            />
+            <div className="flex flex-col justify-center items-center mt-4">
+              <MobileBlogList blog={blog} />
+              <Pagination
+                currentPageNumber={1}
+                maxPageNumber={Math.ceil(totalCount / PER_PAGE)}
+                whatPage={"blogs"}
+              />
+            </div>
           )}
         </div>
       </>
