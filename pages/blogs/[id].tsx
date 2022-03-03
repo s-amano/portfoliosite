@@ -2,11 +2,9 @@ import { GetStaticProps, NextPage } from "next";
 import React, { useMemo } from "react";
 import { client } from "../../libs/client";
 import { Layout } from "../../components/Layout";
-import Image from "next/image";
 import Link from "next/link";
 import { BlogType, TagType } from "types";
 import { BlogIdComponent } from "components/BlogIdComponent";
-import { BlogSidebar } from "components/BlogSidebar";
 import useMedia from "use-media";
 import { SidebarWrapLayout } from "components/SidebarWrapLayout";
 
@@ -59,7 +57,9 @@ export const BlogId: NextPage<Props> = (props: Props) => {
             latestDataBlog={latestDataBlog}
             sortedTag={sortedTag}
           >
-            <BlogIdComponent blog={blog} tagsComponent={tagsComponent} />
+            <div className="flex flex-col md:w-2/3 xl:w-3/4 mr-4">
+              <BlogIdComponent blog={blog} tagsComponent={tagsComponent} />
+            </div>
           </SidebarWrapLayout>
         ) : (
           <BlogIdComponent blog={blog} tagsComponent={tagsComponent} />
