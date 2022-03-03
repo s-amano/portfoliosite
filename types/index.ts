@@ -3,3 +3,4 @@ export * from "types/MicroCMSType";
 export * from "types/SkillType";
 export * from "types/TagType";
 export * from "types/BlogType";
+export * from "types/PortfolioType";
