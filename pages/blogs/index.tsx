@@ -30,8 +30,8 @@ export const BlogPage: NextPage<Props> = (props: Props) => {
 
   const memorizedBlogList = useMemo(
     () => (
-      <div className="flex flex-col justify-center items-center mt-4">
-        <MobileBlogList blog={blog} />
+      <div className="flex items-center flex-col md:w-2/3 xl:w-3/4 mt-4">
+        <BlogList blogs={blog} />
         <Pagination
           currentPageNumber={1}
           maxPageNumber={Math.ceil(totalCount / PER_PAGE)}
@@ -46,7 +46,7 @@ export const BlogPage: NextPage<Props> = (props: Props) => {
     <Layout pageTitle="BlogPage">
       <>
         <div className="w-screen">
-          <div className="mt-16 mx-4 md:mb-16">
+          <div className="mt-16 mx-4">
             <p className="text-center text-4xl text-black">BLOG</p>
           </div>
 

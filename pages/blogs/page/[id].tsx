@@ -48,7 +48,7 @@ export const BlogPageId: NextPage<Props> = (props: Props) => {
     <Layout pageTitle="blogPagination">
       <>
         <div className="w-screen">
-          <div className="mt-16 mx-4 md:mb-16">
+          <div className="mt-16 mx-4">
             <p className="text-center text-4xl text-black">BLOG</p>
           </div>
 
