@@ -16,7 +16,7 @@ export const Home: NextPage<Props> = (props: Props) => {
       <div className="w-full flex flex-col justify-center items-center md:mt-6">
         <ProfileCard />
 
-        <div className="flex justify-center flex-wrap content-between pl-3 mt-8">
+        <div className="flex w-10/12 xl:w-9/12 justify-center flex-wrap content-between pl-3 mt-8">
           <SkillSheet skill={skill} />
         </div>
       </div>
