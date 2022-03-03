@@ -1,9 +1,27 @@
-import Head from 'next/head';
+import Head from "next/head";
 
-const Seo = ({ pageTitle, pageDescription, pagePath, pageImg, pageImgWidth, pageImgHeight }) => {
-  const defaultTitle = 'tenshin-protfolio';
-  const defaultDescription = 'ポートフォリオサイトです。';
-  const defautlImg = '#';
+interface Props {
+  pageTitle?: string;
+  pageDescription?: string;
+  pagePath?: string;
+  pageImg?: string;
+  pageImgWidth?: number;
+  pageImgHeight?: number;
+}
+
+const Seo: React.FC<Props> = (props: Props) => {
+  const {
+    pageTitle,
+    pageDescription,
+    pagePath,
+    pageImg,
+    pageImgWidth,
+    pageImgHeight,
+  } = props;
+
+  const defaultTitle = "tenshin-protfolio";
+  const defaultDescription = "ポートフォリオサイトです。";
+  const defautlImg = "#";
 
   const title = pageTitle ? `${pageTitle} | ${defaultTitle}` : defaultTitle;
   const description = pageDescription ? pageDescription : defaultDescription;
