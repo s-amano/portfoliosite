@@ -1,7 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
+import { BlogType, PortfolioType } from "types";
+import React from "react";
 
-export default function Contents({ contents, contentName }) {
+interface Props {
+  contents: BlogType[] | PortfolioType[];
+  contentName: string;
+}
+
+export const Contents: React.FC<Props> = (props: Props) => {
+  const { contents, contentName } = props;
   return (
     <>
       <div className="flex w-9/12 justify-center flex-wrap content-between pl-3 lg:w-2/3 xl:w-1/2">
@@ -46,4 +54,5 @@ export default function Contents({ contents, contentName }) {
       </div>
     </>
   );
-}
+};
+Contents.displayName = "Contents";

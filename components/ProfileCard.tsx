@@ -1,6 +1,7 @@
+import React, { useMemo } from "react";
 import Image from "next/image";
 
-export default function ProfileCard() {
+export const ProfileCard = React.memo(() => {
   const comments = [
     "(猫の)名前はまだない",
     "巨人の肩の上に立つ",
@@ -8,7 +9,10 @@ export default function ProfileCard() {
     "最近読んだ小説は「葉桜の季節に君を想うということ」",
     "最近観た映画は「トランス・ワールド」",
   ];
-  const randomComment = comments[Math.floor(Math.random() * comments.length)];
+  const randomComment = useMemo(
+    () => comments[Math.floor(Math.random() * comments.length)],
+    []
+  );
   return (
     <div className="flex w-full justify-center flex-wrap content-between">
       <div className="bg-white text-center shadow-xl p-8 w-80 rounded-xl m-6">
@@ -71,4 +75,6 @@ export default function ProfileCard() {
       </div>
     </div>
   );
-}
+});
+
+ProfileCard.displayName = "ProfileCard";
