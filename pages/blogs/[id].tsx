@@ -2,10 +2,10 @@ import { GetStaticProps, NextPage } from "next";
 import React, { useMemo } from "react";
 import { client } from "../../libs/client";
 import { Layout } from "../../components/Layout";
-import Seo from "../../components/Seo";
 import Image from "next/image";
 import Link from "next/link";
 import { BlogType } from "types";
+import { BlogIdComponent } from "components/BlogIdComponent";
 
 interface Props {
   blog: BlogType;
@@ -41,41 +41,9 @@ export const BlogId: NextPage<Props> = (props: Props) => {
             </Link>
           </p>
         )}
-        <Seo
-          pageTitle={blog.title}
-          pageDescription={blog.body}
-          pageImg={blog.image.url}
-          pageImgWidth={1280}
-          pageImgHeight={960}
-        />
-        <div className="mx-8 mt-6 flex flex-1 justify-center items-center flex-col w-screen max-w-2xl">
-          <div className="border-b-2 border-gray-700 mt-8 my-8 mb-6">
-            <p className="text-3xl">{blog.title}</p>
-          </div>
-
-          <div className="flex pl-2 items-center w-10/12 justify-end">
-            {tagsComponent}
-          </div>
-
-          <div className="mt-6 mx-4">
-            <Image
-              className="rounded-3xl"
-              src={blog.image.url}
-              width={400}
-              height={300}
-            ></Image>
-          </div>
-
-          <div
-            style={{ marginRight: "5%", marginLeft: "5%" }}
-            className="my-8 shadow-inner rounded-xl bg-white p-6 max-w-full"
-          >
-            <div
-              className="prose"
-              dangerouslySetInnerHTML={{
-                __html: `${blog.body}`,
-              }}
-            />
+        <div className="flex justify-center md:max-w-[1024px] xl:max-w-[1224px]  mt-20">
+          <div className="flex flex-col md:w-2/3 xl:w-3/4">
+            <BlogIdComponent blog={blog} tagsComponent={tagsComponent} />
           </div>
         </div>
       </>
