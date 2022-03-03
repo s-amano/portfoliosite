@@ -7,6 +7,8 @@ import Link from "next/link";
 import { BlogType, TagType } from "types";
 import { BlogIdComponent } from "components/BlogIdComponent";
 import { BlogSidebar } from "components/BlogSidebar";
+import useMedia from "use-media";
+import { SidebarWrapLayout } from "components/SidebarWrapLayout";
 
 interface Props {
   blog: BlogType;
@@ -17,6 +19,7 @@ interface Props {
 
 export const BlogId: NextPage<Props> = (props: Props) => {
   const { blog, preview, latestDataBlog, tags } = props;
+  const isWide = useMedia({ minWidth: "700px" });
   const tagsComponent = useMemo(() => {
     return (
       blog.tags &&
@@ -51,14 +54,16 @@ export const BlogId: NextPage<Props> = (props: Props) => {
             </Link>
           </p>
         )}
-        <div className="flex flex-start mx-auto md:max-w-[1024px] xl:max-w-[1224px] mt-20">
-          <div className="flex flex-col md:w-2/3 xl:w-3/4 mr-4">
+        {isWide ? (
+          <SidebarWrapLayout
+            latestDataBlog={latestDataBlog}
+            sortedTag={sortedTag}
+          >
             <BlogIdComponent blog={blog} tagsComponent={tagsComponent} />
-          </div>
-          <div className="md:w-1/3 xl:w-1/4">
-            <BlogSidebar latestBlog={latestDataBlog} sortedTag={sortedTag} />
-          </div>
-        </div>
+          </SidebarWrapLayout>
+        ) : (
+          <BlogIdComponent blog={blog} tagsComponent={tagsComponent} />
+        )}
       </>
     </Layout>
   );
