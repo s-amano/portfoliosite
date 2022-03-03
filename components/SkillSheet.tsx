@@ -13,7 +13,7 @@ export const SkillSheet: React.FC<Props> = React.memo(({ skill }) => {
         return (
           <div
             key={skill.id}
-            className="flex relative text-left bg-white mx-6 w-96 rounded-xl shadow-xl px-8 py-4 my-8"
+            className="flex relative text-left bg-white mx-6 w-80 md:w-96 rounded-xl shadow-xl px-8 py-4 my-8"
           >
             <div className="w-64">
               <div className="absolute -top-4 left-2">
