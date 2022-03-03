@@ -17,7 +17,7 @@ export const Tags: NextPage<Props> = (props: Props) => {
     });
   }, [tags]);
   return (
-    <Layout title="tags">
+    <Layout pageTitle="tags">
       <div className="mx-8 my-6 flex flex-1 items-center flex-col w-screen max-w-2xl">
         <p className="text-3xl mt-10 mb-6">タグ一覧</p>
         <div className="flex flex-wrap px-4">

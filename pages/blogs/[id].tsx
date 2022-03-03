@@ -31,7 +31,7 @@ export const BlogId: NextPage<Props> = (props: Props) => {
     );
   }, [blog]);
   return (
-    <Layout title="blog">
+    <Layout pageTitle="blog">
       <>
         {preview && (
           <p className={"bg-yellow-100 text-yellow-900 p-4 text-center"}>

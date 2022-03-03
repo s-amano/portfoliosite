@@ -15,7 +15,7 @@ interface Props {
 export const TagId: NextPage<Props> = (props: Props) => {
   const { blogs, totalCount, tag } = props;
   return (
-    <Layout title={`tags: ${tag}`}>
+    <Layout pageTitle={`tags: ${tag}`}>
       <>
         <div className="flex mt-12">
           <p className="text-3xl text-blue-500">#{tag.name}</p>{" "}

@@ -14,7 +14,7 @@ interface Props {
 export const BlogPageId: NextPage<Props> = (props: Props) => {
   const { blog, totalCount, currentPageNumber } = props;
   return (
-    <Layout title="blogPagination">
+    <Layout pageTitle="blogPagination">
       <>
         <p className="text-3xl mt-8 text-black">ブログ一覧</p>
         <Contents contents={blog} contentName={"blogs"} />

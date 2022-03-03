@@ -10,7 +10,7 @@ interface Props {
 
 export const Profile: NextPage<Props> = ({ skill }) => {
   return (
-    <Layout title="profile">
+    <Layout pageTitle="profile">
       <>
         <p className="mt-6 text-3xl text-black">基本情報</p>
         <div

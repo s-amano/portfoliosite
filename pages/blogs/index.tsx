@@ -13,7 +13,7 @@ interface Props {
 export const BlogPage: NextPage<Props> = (props: Props) => {
   const { blog, totalCount } = props;
   return (
-    <Layout title="BlogPage">
+    <Layout pageTitle="BlogPage">
       <>
         <p className="text-3xl mt-8 text-black">ブログ一覧</p>
         <Contents contents={blog} contentName={"blogs"} />

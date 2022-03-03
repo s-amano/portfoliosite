@@ -5,14 +5,34 @@ import Seo from "./Seo";
 
 interface Props {
   children: JSX.Element;
-  title: string;
+  pageTitle?: string;
+  pageDescription?: string;
+  pagePath?: string;
+  pageImg?: string;
+  pageImgWidth?: number;
+  pageImgHeight?: number;
 }
 
 export const Layout: React.FC<Props> = React.memo((props: Props) => {
-  const { children, title } = props;
+  const {
+    children,
+    pageTitle,
+    pageDescription,
+    pagePath,
+    pageImg,
+    pageImgWidth,
+    pageImgHeight,
+  } = props;
   return (
     <div className="flex justify-center items-center flex-col min-h-screen text-gray-600 text-sm font-mono bg-blue-50">
-      <Seo pageTitle={title} />
+      <Seo
+        pageTitle={pageTitle}
+        pageDescription={pageDescription}
+        pageImg={pageImg}
+        pageImgWidth={pageImgWidth}
+        pageImgHeight={pageImgHeight}
+        pagePath={pagePath}
+      />
       <header className="mb-8">
         <nav className="bg-gray-800 w-screen">
           <div className="flex items-center pl-4 md:pl-8 h-14">
