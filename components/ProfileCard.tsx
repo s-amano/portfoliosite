@@ -8,8 +8,9 @@ export const ProfileCard = React.memo(() => {
       "(猫の)名前はまだない",
       "巨人の肩の上に立つ",
       "車輪の再発明",
-      "最近読んだ小説は「葉桜の季節に君を想うということ」",
+      "最近読んだ小説は [向日葵の咲かない夏」",
       "最近観た映画は「トランス・ワールド」",
+      "早く猫になりたい",
     ],
     []
   );
@@ -18,30 +19,31 @@ export const ProfileCard = React.memo(() => {
     [comments]
   );
   return (
-    <div className="flex w-full justify-center flex-wrap content-between">
-      <div className="bg-white text-center shadow-xl p-8 w-80 rounded-xl m-6">
-        <div>
-          <div className="flex justify-center mt-4">
-            <Image
-              className="rounded-full"
-              src="/nekonew.png"
-              width={60}
-              height={60}
-              alt="Avatar"
-            />
-          </div>
-          <div className="mt-4">
-            <p className="font-bold">Name</p>
-            <p className="text-xs mt-2 text-gray-600">tenshin</p>
-            <p className="font-bold mt-3">E-mail</p>
-            <p className="text-xs mt-2 text-gray-600">
-              amahaya0831[at]gmail.com
-            </p>
-            <p className="font-bold mt-3">ランダム配信ひとこと</p>
-            <p className="text-xs mt-2 text-gray-600">{randomComment}</p>
-          </div>
-          <SnsIcon />
+    <div className="flex bg-white w-80 md:w-[768px] justify-center rounded-xl p-8 m-6 shadow-xl text-center">
+      <div>
+        <div className="flex justify-center mt-4">
+          <Image
+            className="rounded-full"
+            src="/nekonew.png"
+            width={100}
+            height={100}
+            alt="Avatar"
+          />
         </div>
+        <div className="mt-2">
+          <p className="text-base mt-2 text-black font-bold">tenshin</p>
+
+          <p className="text-xs mt-2 text-gray-600">{"慶應義塾大学商学部"}</p>
+
+          <p className="text-xs mt-2 text-gray-600">random:{randomComment}</p>
+
+          <p className="text-xs mt-2 text-gray-600">
+            {
+              "ヤクルトとカラオケと猫と仲の良い友達と三食のご飯、十分な睡眠が必要です。"
+            }
+          </p>
+        </div>
+        <SnsIcon />
       </div>
     </div>
   );

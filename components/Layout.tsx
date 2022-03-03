@@ -43,19 +43,19 @@ export const Layout: React.FC<Props> = React.memo((props: Props) => {
                 </a>
               </Link>
 
-              <Link href="/profile">
-                <a className="text-gray-300 hover:bg-gray-700 p-1 rounded md:p-2">
-                  PROFILE
-                </a>
-              </Link>
-
               <Link href="/blogs">
                 <a className="text-gray-300 hover:bg-gray-700 p-1 rounded md:p-2">
                   BLOG
                 </a>
               </Link>
 
-              <Link href="/tags">
+              <Link href="/profile">
+                <a className="text-gray-300 hover:bg-gray-700 p-1 rounded md:p-2">
+                  SKILL
+                </a>
+              </Link>
+
+              {/* <Link href="/tags">
                 <a className="text-gray-300 hover:bg-gray-700 p-1 rounded md:p-2">
                   TAG
                 </a>
@@ -65,7 +65,7 @@ export const Layout: React.FC<Props> = React.memo((props: Props) => {
                 <a className="text-gray-300 hover:bg-gray-700 py-1 rounded md:p-2">
                   PORTFOLIO
                 </a>
-              </Link>
+              </Link> */}
             </div>
           </div>
         </nav>
