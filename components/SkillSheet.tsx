@@ -1,6 +1,12 @@
+import React from "react";
 import Image from "next/image";
+import { SkillType } from "types";
 
-export default function SkillSheet({ skill }) {
+interface Props {
+  skill: SkillType[];
+}
+
+export const SkillSheet: React.FC<Props> = React.memo(({ skill }) => {
   return (
     <>
       {skill.map((skill) => {
@@ -41,4 +47,6 @@ export default function SkillSheet({ skill }) {
       })}
     </>
   );
-}
+});
+
+SkillSheet.displayName = "SkillSheet";

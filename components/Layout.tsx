@@ -1,9 +1,18 @@
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import Seo from "./Seo";
 
-export default function Layout({ children, title = "TOP" }) {
+interface Props {
+  children: JSX.Element;
+  title: string;
+}
+
+export const Layout: React.FC<Props> = React.memo((props: Props) => {
+  const { children, title } = props;
   return (
     <div className="flex justify-center items-center flex-col min-h-screen text-gray-600 text-sm font-mono bg-blue-50">
+      <Seo pageTitle={title} />
       <header className="mb-8">
         <nav className="bg-gray-800 w-screen">
           <div className="flex items-center pl-4 md:pl-8 h-14">
@@ -45,13 +54,8 @@ export default function Layout({ children, title = "TOP" }) {
         {children}
       </main>
       <footer className="w-full h-20 flex justify-center items-center border-t border-gray-300 mb-2 mt-10">
-        <Link
-          className="flex items-center"
-          href="/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <a>
+        <Link href="/">
+          <a target={"_blank"}>
             <Image
               className="rounded-lg"
               src="/my_original.jpg"
@@ -64,4 +68,6 @@ export default function Layout({ children, title = "TOP" }) {
       </footer>
     </div>
   );
-}
+});
+
+Layout.displayName = "Layout";

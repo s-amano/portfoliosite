@@ -1,9 +1,16 @@
+import { GetStaticProps, NextPage } from "next";
 import React, { useMemo } from "react";
-import Layout from "../../components/Layout";
+import { Layout } from "../../components/Layout";
 import { client } from "../../libs/client";
 import Link from "next/link";
+import { TagType } from "types";
 
-export default function Tags({ tags }) {
+interface Props {
+  tags: TagType[];
+}
+
+export const Tags: NextPage<Props> = (props: Props) => {
+  const { tags } = props;
   const sortedTag = useMemo(() => {
     return tags.sort((a, b) => {
       return a.name < b.name ? -1 : 1;
@@ -30,10 +37,12 @@ export default function Tags({ tags }) {
       </div>
     </Layout>
   );
-}
+};
 
 // データをテンプレートに受け渡す部分の処理を記述します
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async (): Promise<{
+  props: Props;
+}> => {
   const data = await client.get({
     endpoint: "tags",
     queries: {
@@ -42,7 +51,7 @@ export const getStaticProps = async () => {
   });
 
   const tags = await Promise.all(
-    data.contents.map(async (tag) => {
+    data.contents.map(async (tag: TagType) => {
       const blog = await client.get({
         endpoint: "blogs",
         queries: { filters: `tags[contains]${tag.id}` },
@@ -51,13 +60,11 @@ export const getStaticProps = async () => {
     })
   );
 
-  if (!tags) {
-    return { notFound: true };
-  }
-
   return {
     props: {
       tags: tags,
     },
   };
 };
+
+export default Tags;
