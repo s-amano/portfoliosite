@@ -23,12 +23,12 @@ export const MobileBlogList: React.FC<Props> = ({ blog }) => {
           return (
             <Link key={blog.id} href={`/blogs/${blog.id}`}>
               <a>
-                <div className="text-center m-6 flex flex-col bg-white h-96">
+                <div className="w-[360px] text-center mb-6 mx-auto flex flex-col bg-white h-96">
                   <div className="">
                     <Image
                       src={blog.image.url}
-                      width={342}
-                      height={225}
+                      width={360}
+                      height={235}
                       objectFit="cover"
                       alt="blogimg"
                     />
