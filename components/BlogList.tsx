@@ -10,7 +10,7 @@ interface Props {
 export const BlogList: React.FC<Props> = ({ blogs }) => {
   return (
     <>
-      <div className="flex flex-col justify-center">
+      <div className="flex flex-col justify-center w-[95%]">
         {blogs.map((blog) => {
           const maxLength = 40;
           const maxBodyLength = 70;
@@ -28,24 +28,26 @@ export const BlogList: React.FC<Props> = ({ blogs }) => {
           return (
             <Link key={blog.id} href={`/blogs/${blog.id}`}>
               <a>
-                <div className="text-center m-4 flex rounded-3xl">
-                  <Image
-                    className="rounded-3xl"
-                    src={blog.image.url}
-                    width={256}
-                    height={256}
-                    objectFit="cover"
-                    alt="blogimg"
-                  />
+                <div className="text-center m-3 flex rounded-3xl w-full">
+                  <div>
+                    <Image
+                      className="rounded-3xl"
+                      src={blog.image.url}
+                      width={256}
+                      height={256}
+                      objectFit="cover"
+                      alt="blogimg"
+                    />
+                  </div>
 
-                  <div className="ml-3 px-4 justify-around flex flex-col w-full">
+                  <div className="ml-2 px-3 justify-around flex flex-col w-full">
                     <div>
                       <p className="text-sm text-left text-gray-400">
                         {blog.createdAt.substring(0, 10)}
                       </p>
                     </div>
                     <div>
-                      <p className="text-2xl text-left text-black">
+                      <p className="text-xl text-left text-black">
                         {blog.title}
                       </p>
                     </div>

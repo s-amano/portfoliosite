@@ -57,9 +57,7 @@ export const BlogId: NextPage<Props> = (props: Props) => {
             latestDataBlog={latestDataBlog}
             sortedTag={sortedTag}
           >
-            <div className="flex flex-col md:w-2/3 xl:w-3/4 mr-4">
-              <BlogIdComponent blog={blog} tagsComponent={tagsComponent} />
-            </div>
+            <BlogIdComponent blog={blog} tagsComponent={tagsComponent} />
           </SidebarWrapLayout>
         ) : (
           <BlogIdComponent blog={blog} tagsComponent={tagsComponent} />

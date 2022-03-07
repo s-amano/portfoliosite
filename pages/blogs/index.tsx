@@ -30,14 +30,14 @@ export const BlogPage: NextPage<Props> = (props: Props) => {
 
   const memorizedBlogList = useMemo(
     () => (
-      <div className="flex items-center flex-col md:w-2/3 xl:w-3/4 mt-4">
+      <>
         <BlogList blogs={blog} />
         <Pagination
           currentPageNumber={1}
           maxPageNumber={Math.ceil(totalCount / PER_PAGE)}
           whatPage={"blogs"}
         />
-      </div>
+      </>
     ),
     [blog, totalCount]
   );
