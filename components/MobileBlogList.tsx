@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { BlogType } from "../types";
+import { BsFillCalendarEventFill } from "react-icons/bs";
 
 interface Props {
   blog: BlogType[];
@@ -35,11 +36,12 @@ export const MobileBlogList: React.FC<Props> = ({ blog }) => {
                   </div>
 
                   <div className="px-4 justify-around flex flex-col w-full mt-4">
-                    <div>
-                      <p className="text-base text-left text-gray-400">
-                        {blog.createdAt.substring(0, 10)}
+                    <span className="flex items-center">
+                      <BsFillCalendarEventFill className="mr-1 text-gray-500" />
+                      <p className="text-base text-gray-400">
+                        {blog.publishedAt.substring(0, 10)}
                       </p>
-                    </div>
+                    </span>
                     <div className="mt-3">
                       <p className="text-xl text-left text-gray-600 font-semibold">
                         {blog.title}

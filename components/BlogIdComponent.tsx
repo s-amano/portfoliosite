@@ -1,7 +1,8 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { BlogType } from "types";
+import { BsFillCalendarEventFill } from "react-icons/bs";
+import { GrUpdate } from "react-icons/gr";
 
 interface Props {
   blog: BlogType;
@@ -12,10 +13,15 @@ export const BlogIdComponent: React.FC<Props> = React.memo((props: Props) => {
   return (
     <div className="flex justify-center items-center w-[95%] flex-col md:shadow-inner rounded-xl bg-white">
       <div className="flex flex-col justify-center items-center w-11/12">
-        <div className="mt-8 w-full justify-start ml-10">
-          <p className="text-sm text-left text-gray-400">
-            {blog.createdAt.substring(0, 10)}
-          </p>
+        <div className="flex mt-8 w-full justify-start ml-10">
+          <span className="flex items-center mr-2">
+            <div>
+              <BsFillCalendarEventFill className="mr-1 text-gray-500" />
+            </div>
+            <p className="font-bold text-base text-gray-400">
+              {blog.publishedAt.substring(0, 10)}
+            </p>
+          </span>
         </div>
         <div className="w-full text-left my-2 ml-8 pb-2 border-b-2 px-2">
           <p className="text-xl md:text-2xl text-black font-bold break-words">
