@@ -15,7 +15,7 @@ interface Props {
 export const BlogSidebar: React.FC<Props> = React.memo((props: Props) => {
   const { latestBlog, sortedTag } = props;
   return (
-    <div className="flex flex-col mt-4">
+    <>
       <div className="bg-white text-center shadow-xl p-4 rounded-xl w-full">
         <div className="h-36 flex flex-col justify-center">
           <div className="flex">
@@ -47,7 +47,7 @@ export const BlogSidebar: React.FC<Props> = React.memo((props: Props) => {
       </div>
       <TagList sortedTag={sortedTag} />
       <LatestBlogList latestBlog={latestBlog} />
-    </div>
+    </>
   );
 });
 

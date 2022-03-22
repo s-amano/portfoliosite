@@ -9,7 +9,7 @@ interface Props {
 export const LatestBlogList: React.FC<Props> = React.memo((props: Props) => {
   const { latestBlog } = props;
   return (
-    <div className="shadow-inner rounded-xl bg-white p-4 mt-4">
+    <div className="shadow-inner rounded-xl bg-white p-4 mt-4 sticky top-0">
       <p className="border-b-2 border-black text-2xl text-black text-left pt-3 mb-6 pb-2">
         最新記事
       </p>
