@@ -18,7 +18,7 @@ export const BlogIdComponent: React.FC<Props> = React.memo((props: Props) => {
             <div>
               <BsFillCalendarEventFill className="mr-1 text-gray-500" />
             </div>
-            <p className="font-bold text-base text-gray-400">
+            <p className="font-bold text-base text-gray-400 break-words">
               {blog.publishedAt.substring(0, 10)}
             </p>
           </span>
@@ -43,7 +43,7 @@ export const BlogIdComponent: React.FC<Props> = React.memo((props: Props) => {
         </div>
 
         <div
-          className="prose my-10 px-4 w-full"
+          className="prose my-10 px-4 w-full break-words"
           dangerouslySetInnerHTML={{
             __html: `${blog.body}`,
           }}
