@@ -1,6 +1,7 @@
 import React from "react";
 import { BlogType } from "../types";
 import Link from "next/link";
+import { GrArticle } from "react-icons/gr";
 
 interface Props {
   latestBlog: BlogType[];
@@ -10,9 +11,11 @@ export const LatestBlogList: React.FC<Props> = React.memo((props: Props) => {
   const { latestBlog } = props;
   return (
     <div className="shadow-inner rounded-xl bg-white p-4 mt-4 sticky top-0">
-      <p className="border-b-2 border-black text-2xl text-black text-left pt-3 mb-6 pb-2">
-        最新記事
-      </p>
+      <div className="flex border-b-2 border-black pt-3 mb-6 pb-2 items-center">
+        <GrArticle size={20} className="mr-1" />
+        <p className="text-2xl text-black text-left">最新記事</p>
+      </div>
+
       <div>
         {latestBlog.map((blog) => {
           const maxLength = 30;
