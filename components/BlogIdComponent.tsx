@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 import { BlogType } from "types";
 import { BsFillCalendarEventFill } from "react-icons/bs";
-import { GrUpdate } from "react-icons/gr";
 
 interface Props {
   blog: BlogType;
