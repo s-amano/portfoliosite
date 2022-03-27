@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { TagType } from "../types";
+import { FaHashtag } from "react-icons/fa";
 
 interface Props {
   sortedTag: TagType[];
@@ -10,9 +11,10 @@ export const TagList: React.FC<Props> = React.memo((props: Props) => {
   const { sortedTag } = props;
   return (
     <div className="shadow-inner rounded-xl bg-white p-4 mt-4">
-      <p className="border-b-2 border-black text-2xl text-black text-left pt-3 mb-6 pb-2">
-        タグ一覧
-      </p>
+      <div className="flex border-b-2 border-black pt-3 mb-6 pb-2 items-center">
+        <FaHashtag size={20} className="mr-1" />
+        <p className="text-2xl text-black text-left">タグ一覧</p>
+      </div>
       <div className="flex flex-wrap justify-left items-center">
         {sortedTag.map((tag) => {
           return (
