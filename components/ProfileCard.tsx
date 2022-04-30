@@ -1,6 +1,7 @@
-import React, { useMemo } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { SnsIcon } from "./SnsIcon";
+import { GrUpdate } from "react-icons/gr";
 
 export const ProfileCard = React.memo(() => {
   const comments = useMemo(
@@ -14,10 +15,17 @@ export const ProfileCard = React.memo(() => {
     ],
     []
   );
-  const randomComment = useMemo(
-    () => comments[Math.floor(Math.random() * comments.length)],
+  const [randomComment, setRandomComment] = useState("");
+  useEffect(() => {
+    setRandomComment(comments[Math.floor(Math.random() * comments.length)]);
+  }, [comments]);
+
+  const onClickRandomComment = useCallback(
+    () =>
+      setRandomComment(comments[Math.floor(Math.random() * comments.length)]),
     [comments]
   );
+
   return (
     <div className="flex bg-white w-80 md:w-[768px] justify-center rounded-xl p-8 m-6 shadow-xl text-center">
       <div>
@@ -35,7 +43,13 @@ export const ProfileCard = React.memo(() => {
 
           <p className="text-xs mt-2 text-gray-600">{"慶應義塾大学商学部"}</p>
 
-          <p className="text-xs mt-2 text-gray-600">random:{randomComment}</p>
+          <p className="text-xs mt-2 text-gray-600">
+            <span className="flex items-center">
+              random
+              <GrUpdate onClick={onClickRandomComment} className="mx-1" />:
+              {randomComment}
+            </span>
+          </p>
 
           <p className="text-xs mt-2 text-gray-600">
             {"ヤクルトとカラオケと猫、十分な睡眠が必要です。"}
