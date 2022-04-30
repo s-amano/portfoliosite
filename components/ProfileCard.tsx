@@ -38,18 +38,17 @@ export const ProfileCard = React.memo(() => {
             alt="Avatar"
           />
         </div>
-        <div className="mt-2">
-          <p className="text-base mt-2 text-black font-bold">tenshin</p>
+        <div className="mt-2 w-80">
+          <p className="text-base mt-2 text-black font-bold">
+            <span className="flex items-center justify-center">
+              tenshin
+              <GrUpdate onClick={onClickRandomComment} className="mx-1" />
+            </span>
+          </p>
 
           <p className="text-xs mt-2 text-gray-600">{"慶應義塾大学商学部"}</p>
 
-          <p className="text-xs mt-2 text-gray-600">
-            <span className="flex items-center">
-              random
-              <GrUpdate onClick={onClickRandomComment} className="mx-1" />:
-              {randomComment}
-            </span>
-          </p>
+          <p className="text-xs mt-2 text-gray-600">random :{randomComment}</p>
 
           <p className="text-xs mt-2 text-gray-600">
             {"ヤクルトとカラオケと猫、十分な睡眠が必要です。"}
