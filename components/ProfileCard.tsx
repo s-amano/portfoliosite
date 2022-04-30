@@ -38,9 +38,7 @@ export const ProfileCard = React.memo(() => {
           <p className="text-xs mt-2 text-gray-600">random:{randomComment}</p>
 
           <p className="text-xs mt-2 text-gray-600">
-            {
-              "ヤクルトとカラオケと猫と仲の良い友達と三食のご飯、十分な睡眠が必要です。"
-            }
+            {"ヤクルトとカラオケと猫、十分な睡眠が必要です。"}
           </p>
         </div>
         <SnsIcon />
