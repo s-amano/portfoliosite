@@ -35,7 +35,7 @@ export const Layout: React.FC<Props> = React.memo((props: Props) => {
       />
       <header className="mb-8">
         <nav className="bg-gray-800 w-screen flex items-center md:justify-center">
-          <div className="flex items-center pl-10 h-14 md:w-[1024px] xl:w-[1224px]">
+          <div className="flex items-center pl-10 h-14 md:w-[960px]">
             <div className="flex space-x-4">
               <Link href="/">
                 <a className="md:text-lg text-gray-300 hover:bg-gray-700 p-1 rounded md:p-2">
