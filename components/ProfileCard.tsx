@@ -43,7 +43,9 @@ export const ProfileCard = React.memo(() => {
           <p className="text-base mt-2 text-black font-bold">
             <span className="flex items-center justify-center">
               tenshin
-              <GrUpdate onClick={onClickRandomComment} className="mx-1" />
+              <button onClick={onClickRandomComment}>
+                <GrUpdate className="mx-1" />
+              </button>
             </span>
           </p>
 
