@@ -1,4 +1,4 @@
-# s-amano's Portfolio site
+# s-amano's Portfolio Website
 https://10shin.net/
 
 ## Stack
