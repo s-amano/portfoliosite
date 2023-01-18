@@ -1,11 +1,11 @@
 import { GetStaticProps, NextPage } from "next";
 import React, { useMemo } from "react";
+import Link from "next/link";
+import useMedia from "use-media";
 import { client } from "../../libs/client";
 import { Layout } from "../../components/Layout";
-import Link from "next/link";
 import { BlogType, TagType } from "types";
 import { BlogIdComponent } from "@/components/BlogIdComponent";
-import useMedia from "use-media";
 import { SidebarWrapLayout } from "@/components/SidebarWrapLayout";
 
 interface Props {

@@ -1,7 +1,7 @@
 import React from "react";
-import { BlogType } from "../../types";
 import Link from "next/link";
 import { GrArticle } from "react-icons/gr";
+import { BlogType } from "../../types";
 
 interface Props {
   latestBlog: BlogType[];

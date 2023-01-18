@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import Image from "next/image";
-import { SnsIcon } from "./SnsIcon";
 import { GrUpdate } from "react-icons/gr";
+import { SnsIcon } from "./SnsIcon";
 
 export const ProfileCard = React.memo(() => {
   const comments = useMemo(

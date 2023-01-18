@@ -1,12 +1,12 @@
 import { GetStaticProps, NextPage } from "next";
+import useMedia from "use-media";
+import { useMemo } from "react";
 import { Layout } from "../../components/Layout";
 // import { Contents } from "../../components/Contents";
 import { client } from "../../libs/client";
 import { Pagination } from "../../components/Pagination";
 import { BlogType, TagType } from "types";
-import useMedia from "use-media";
 import { SidebarWrapLayout } from "@/components/SidebarWrapLayout";
-import { useMemo } from "react";
 import { BlogList } from "@/components/BlogList";
 import { MobileBlogList } from "@/components/MobileBlogList";
 

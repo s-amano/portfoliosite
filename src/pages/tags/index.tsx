@@ -1,8 +1,8 @@
 import { GetStaticProps, NextPage } from "next";
 import React, { useMemo } from "react";
+import Link from "next/link";
 import { Layout } from "../../components/Layout";
 import { client } from "../../libs/client";
-import Link from "next/link";
 import { TagType } from "types";
 
 interface Props {

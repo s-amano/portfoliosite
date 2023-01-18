@@ -1,6 +1,6 @@
 import React from "react";
-import { BlogType, TagType } from "types";
 import { BlogSidebar } from "./BlogSidebar";
+import { BlogType, TagType } from "types";
 
 interface Props {
   children: JSX.Element;

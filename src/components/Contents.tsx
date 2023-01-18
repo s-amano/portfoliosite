@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { BlogType, PortfolioType } from "types";
 import React from "react";
+import { BlogType, PortfolioType } from "types";
 
 interface Props {
   contents: BlogType[] | PortfolioType[];
