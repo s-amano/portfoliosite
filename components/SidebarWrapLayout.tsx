@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React from "react";
 import { BlogType, TagType } from "types";
 import { BlogSidebar } from "./BlogSidebar";
 
