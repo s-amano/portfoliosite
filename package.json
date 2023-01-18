@@ -7,12 +7,10 @@
     "lint": "next lint --dir src",
     "lint:fix": "yarn lint --fix",
     "format": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json}'",
-    "lint:precommit": "yarn lint",
-    "fmt:precommit": "yarn format"
+    "prepare": "husky install"
   },
   "lint-staged": {
-    "src/**/*.{ts,tsx}": "yarn lint:precommit",
-    "src/**/*.{js,jsx,ts,tsx,json,css,scss}": "yarn fmt:precommit"
+    "src/**/*.{js,tsx,ts,tsx}": ["yarn lint","yarn format"]
   },
   "husky": {
     "hooks": {

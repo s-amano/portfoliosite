@@ -4,8 +4,7 @@ import Image from "next/image";
 import { TagList } from "./TagList";
 import { LatestBlogList } from "./LatestBlogList";
 import { SnsIcon } from "@/components/SnsIcon";
-import { TagType } from "types";
-import { BlogType } from "types";
+import { TagType, BlogType } from "types";
 
 interface Props {
   latestBlog: BlogType[];
