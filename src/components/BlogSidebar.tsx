@@ -36,9 +36,7 @@ export const BlogSidebar: React.FC<Props> = React.memo((props: Props) => {
               <div>
                 <p className="text-lg font-bold text-left">{"tenshin"}</p>
 
-                <p className="text-xs mt-2 text-gray-600 text-left">
-                  {"amahaya0831[at]gmail.com"}
-                </p>
+                <p className="text-xs mt-2 text-gray-600 text-left">{"amahaya0831[at]gmail.com"}</p>
               </div>
               <SnsIcon />
             </div>

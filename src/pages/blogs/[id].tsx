@@ -25,9 +25,7 @@ export const BlogId: NextPage<Props> = (props: Props) => {
         return (
           <div key={tag.id} className="pt-2 mr-1">
             <Link href={`/tags/${tag.id}`}>
-              <a className="text-blue-500 hover:bg-gray-500 p-2 rounded">
-                #{tag.name}
-              </a>
+              <a className="text-blue-500 hover:bg-gray-500 p-2 rounded">#{tag.name}</a>
             </Link>
           </div>
         );
@@ -53,10 +51,7 @@ export const BlogId: NextPage<Props> = (props: Props) => {
           </p>
         )}
         {isWide ? (
-          <SidebarWrapLayout
-            latestDataBlog={latestDataBlog}
-            sortedTag={sortedTag}
-          >
+          <SidebarWrapLayout latestDataBlog={latestDataBlog} sortedTag={sortedTag}>
             <BlogIdComponent blog={blog} tagsComponent={tagsComponent} />
           </SidebarWrapLayout>
         ) : (
@@ -78,15 +73,13 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async (
-  context
+  context,
 ): Promise<{
   props: Props;
 }> => {
   const id = context.params.id;
 
-  const draftKey = isDraft(context.previewData)
-    ? { draftKey: context.previewData.draftKey }
-    : {};
+  const draftKey = isDraft(context.previewData) ? { draftKey: context.previewData.draftKey } : {};
 
   const data =
     typeof id === "string"
@@ -109,7 +102,7 @@ export const getStaticProps: GetStaticProps = async (
         queries: { filters: `tags[contains]${tag.id}` },
       });
       return { ...tag, count: blog.totalCount };
-    })
+    }),
   );
 
   const latestDataBlog = await client.get({

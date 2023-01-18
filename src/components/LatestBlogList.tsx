@@ -28,9 +28,7 @@ export const LatestBlogList: React.FC<Props> = React.memo((props: Props) => {
             <Link key={blog.id} href={`/blogs/${blog.id}`} passHref>
               <a>
                 <div className="border-b-2 border-gray-300 mb-6">
-                  <p className="text-base text-gray-400">
-                    {blog.createdAt.substring(0, 10)}
-                  </p>
+                  <p className="text-base text-gray-400">{blog.createdAt.substring(0, 10)}</p>
                   <p className="text-base">{blog.title}</p>
                 </div>
               </a>

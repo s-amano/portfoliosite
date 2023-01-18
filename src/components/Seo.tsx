@@ -10,14 +10,7 @@ interface Props {
 }
 
 const Seo: React.FC<Props> = (props: Props) => {
-  const {
-    pageTitle,
-    pageDescription,
-    pagePath,
-    pageImg,
-    pageImgWidth,
-    pageImgHeight,
-  } = props;
+  const { pageTitle, pageDescription, pagePath, pageImg, pageImgWidth, pageImgHeight } = props;
 
   const defaultTitle = "tenshin-protfolio";
   const defaultDescription = "ポートフォリオサイトです。";

@@ -48,22 +48,19 @@ export const getStaticPaths: GetStaticPaths = async () => {
           },
         })
         .then(({ totalCount }) => {
-          const range = (start, end) =>
-            [...Array(end - start + 1)].map((_, i) => start + i);
+          const range = (start, end) => [...Array(end - start + 1)].map((_, i) => start + i);
 
-          return range(1, Math.ceil(totalCount / 4)).map(
-            (i) => `/tags/${tag.id}/page/${i}`
-          );
+          return range(1, Math.ceil(totalCount / 4)).map((i) => `/tags/${tag.id}/page/${i}`);
         });
       return result;
-    })
+    }),
   );
   const paths = resPaths.flat();
   return { paths, fallback: false };
 };
 
 export const getStaticProps: GetStaticProps = async (
-  context
+  context,
 ): Promise<{
   props: Props;
 }> => {
@@ -78,9 +75,7 @@ export const getStaticProps: GetStaticProps = async (
   };
   const data = await client.get({ endpoint: "blogs", queries: queries });
   const tag =
-    typeof tagId === "string"
-      ? await client.get({ endpoint: "tags", contentId: tagId })
-      : null;
+    typeof tagId === "string" ? await client.get({ endpoint: "tags", contentId: tagId }) : null;
 
   return {
     props: {

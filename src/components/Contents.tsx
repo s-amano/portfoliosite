@@ -37,13 +37,9 @@ export const Contents: React.FC<Props> = (props: Props) => {
                     />
                   </div>
                   <div className="px-4 w-56">
-                    <p className="text-sm text-left font-bold">
-                      {content.title}
-                    </p>
+                    <p className="text-sm text-left font-bold">{content.title}</p>
                     <div className="flex pl-2 mt-1 justify-between items-center">
-                      <div className="h-7 p-1 w-52 text-left text-xs text-gray-500">
-                        {date}
-                      </div>
+                      <div className="h-7 p-1 w-52 text-left text-xs text-gray-500">{date}</div>
                     </div>
                   </div>
                 </div>

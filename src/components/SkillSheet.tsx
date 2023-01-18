@@ -17,21 +17,15 @@ export const SkillSheet: React.FC<Props> = React.memo(({ skill }) => {
           >
             <div className="w-64">
               <div className="absolute -top-4 left-2">
-                <p className="text-2xl font-bold border-b-2 border-gray-700">
-                  {skill.title}
-                </p>
+                <p className="text-2xl font-bold border-b-2 border-gray-700">{skill.title}</p>
               </div>
               <div className="mt-4 ml-2">
                 <p className="font-bold">使用歴</p>
                 <p className="text-xs mt-2 ml-2 text-gray-600">{skill.time}</p>
                 <p className="font-bold mt-3">経験</p>
-                <p className="text-xs mt-2 ml-2 text-gray-600">
-                  {skill.experience}
-                </p>
+                <p className="text-xs mt-2 ml-2 text-gray-600">{skill.experience}</p>
                 <p className="font-bold mt-3">補足</p>
-                <p className="text-xs mt-2 ml-2 text-gray-600">
-                  {skill.supplement}
-                </p>
+                <p className="text-xs mt-2 ml-2 text-gray-600">{skill.supplement}</p>
               </div>
             </div>
             <div className="mt-4">

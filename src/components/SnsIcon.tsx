@@ -4,11 +4,7 @@ export const SnsIcon: React.FC = React.memo(() => {
   return (
     <div className="mt-6 flex justify-around">
       <div>
-        <a
-          href={"https://twitter.com/s_tenshin"}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href={"https://twitter.com/s_tenshin"} target="_blank" rel="noopener noreferrer">
           <svg
             className="w-6 h-6 hover:text-blue-500"
             stroke="currentColor"
@@ -21,11 +17,7 @@ export const SnsIcon: React.FC = React.memo(() => {
         </a>
       </div>
       <div>
-        <a
-          href={"https://github.com/s-amano"}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href={"https://github.com/s-amano"} target="_blank" rel="noopener noreferrer">
           <svg
             className="w-6 h-6 hover:text-black"
             fill="currentColor"

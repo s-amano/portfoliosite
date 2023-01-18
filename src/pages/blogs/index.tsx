@@ -39,7 +39,7 @@ export const BlogPage: NextPage<Props> = (props: Props) => {
         />
       </>
     ),
-    [blog, totalCount]
+    [blog, totalCount],
   );
 
   return (
@@ -51,10 +51,7 @@ export const BlogPage: NextPage<Props> = (props: Props) => {
           </div>
 
           {isWide ? (
-            <SidebarWrapLayout
-              latestDataBlog={latestDataBlog}
-              sortedTag={sortedTag}
-            >
+            <SidebarWrapLayout latestDataBlog={latestDataBlog} sortedTag={sortedTag}>
               {memorizedBlogList}
             </SidebarWrapLayout>
           ) : (
@@ -91,7 +88,7 @@ export const getStaticProps: GetStaticProps = async () => {
         queries: { filters: `tags[contains]${tag.id}` },
       });
       return { ...tag, count: blog.totalCount };
-    })
+    }),
   );
 
   const latestDataBlog = await client.get({

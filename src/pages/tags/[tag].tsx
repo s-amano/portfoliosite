@@ -43,7 +43,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 // データをテンプレートに受け渡す部分の処理を記述します
 export const getStaticProps: GetStaticProps = async (
-  context
+  context,
 ): Promise<{
   props: Props;
 }> => {

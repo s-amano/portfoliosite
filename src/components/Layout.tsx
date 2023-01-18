@@ -14,15 +14,8 @@ interface Props {
 }
 
 export const Layout: React.FC<Props> = React.memo((props: Props) => {
-  const {
-    children,
-    pageTitle,
-    pageDescription,
-    pagePath,
-    pageImg,
-    pageImgWidth,
-    pageImgHeight,
-  } = props;
+  const { children, pageTitle, pageDescription, pagePath, pageImg, pageImgWidth, pageImgHeight } =
+    props;
   return (
     <div className="flex justify-center items-center flex-col min-h-screen text-gray-600 text-sm font-mono bg-blue-50">
       <Seo
@@ -70,19 +63,11 @@ export const Layout: React.FC<Props> = React.memo((props: Props) => {
           </div>
         </nav>
       </header>
-      <main className="flex flex-1 justify-center items-center flex-col w-screen">
-        {children}
-      </main>
+      <main className="flex flex-1 justify-center items-center flex-col w-screen">{children}</main>
       <footer className="w-full h-20 flex justify-center items-center border-t border-gray-300 mb-2 mt-10">
         <Link href="/">
           <a>
-            <Image
-              className="rounded-lg"
-              src="/nekonew.png"
-              alt="profile"
-              width={42}
-              height={42}
-            />
+            <Image className="rounded-lg" src="/nekonew.png" alt="profile" width={42} height={42} />
           </a>
         </Link>
       </footer>

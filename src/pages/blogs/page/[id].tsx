@@ -41,7 +41,7 @@ export const BlogPageId: NextPage<Props> = (props: Props) => {
         />
       </div>
     ),
-    [blog, currentPageNumber, totalCount]
+    [blog, currentPageNumber, totalCount],
   );
 
   return (
@@ -53,10 +53,7 @@ export const BlogPageId: NextPage<Props> = (props: Props) => {
           </div>
 
           {isWide ? (
-            <SidebarWrapLayout
-              latestDataBlog={latestDataBlog}
-              sortedTag={sortedTag}
-            >
+            <SidebarWrapLayout latestDataBlog={latestDataBlog} sortedTag={sortedTag}>
               {memorizedBlogList}
             </SidebarWrapLayout>
           ) : (
@@ -76,19 +73,16 @@ export const BlogPageId: NextPage<Props> = (props: Props) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const range = (start, end) =>
-    [...Array(end - start + 1)].map((_, i) => start + i);
+  const range = (start, end) => [...Array(end - start + 1)].map((_, i) => start + i);
   const data = await client.get({ endpoint: "blogs" });
 
   const { totalCount } = data;
-  const paths = range(1, Math.ceil(totalCount / PER_PAGE)).map(
-    (i) => `/blogs/page/${i}`
-  );
+  const paths = range(1, Math.ceil(totalCount / PER_PAGE)).map((i) => `/blogs/page/${i}`);
   return { paths, fallback: false };
 };
 
 export const getStaticProps: GetStaticProps = async (
-  context
+  context,
 ): Promise<{
   props: Props;
 }> => {
@@ -110,7 +104,7 @@ export const getStaticProps: GetStaticProps = async (
         queries: { filters: `tags[contains]${tag.id}` },
       });
       return { ...tag, count: blog.totalCount };
-    })
+    }),
   );
 
   const latestDataBlog = await client.get({

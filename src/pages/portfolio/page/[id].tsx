@@ -29,19 +29,16 @@ export const PortfolioPageId: NextPage<Props> = (props: Props) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const range = (start, end) =>
-    [...Array(end - start + 1)].map((_, i) => start + i);
+  const range = (start, end) => [...Array(end - start + 1)].map((_, i) => start + i);
   const data = await client.get({ endpoint: "portfolio" });
 
   const { totalCount } = data;
-  const paths = range(1, Math.ceil(totalCount / 4)).map(
-    (i) => `/portfolio/page/${i}`
-  );
+  const paths = range(1, Math.ceil(totalCount / 4)).map((i) => `/portfolio/page/${i}`);
   return { paths, fallback: false };
 };
 
 export const getStaticProps: GetStaticProps = async (
-  context
+  context,
 ): Promise<{
   props: Props;
 }> => {

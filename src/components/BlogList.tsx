@@ -44,14 +44,10 @@ export const BlogList: React.FC<Props> = ({ blogs }) => {
                   <div className="ml-2 px-3 justify-around flex flex-col w-full">
                     <span className="flex items-center">
                       <BsFillCalendarEventFill className="mr-1" />
-                      <p className="text-sm text-gray-500">
-                        {blog.publishedAt.substring(0, 10)}
-                      </p>
+                      <p className="text-sm text-gray-500">{blog.publishedAt.substring(0, 10)}</p>
                     </span>
                     <div>
-                      <p className="text-xl text-left text-black">
-                        {blog.title}
-                      </p>
+                      <p className="text-xl text-left text-black">{blog.title}</p>
                     </div>
                     <div>
                       <p className="text-left text-gray-500">{blogBody}</p>

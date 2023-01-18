@@ -14,7 +14,7 @@ export const ProfileCard = React.memo(() => {
       "最近観た映画は「トランス・ワールド」",
       "早く猫になりたい",
     ],
-    []
+    [],
   );
   const [randomComment, setRandomComment] = useState("");
   useEffect(() => {
@@ -22,9 +22,8 @@ export const ProfileCard = React.memo(() => {
   }, [comments]);
 
   const onClickRandomComment = useCallback(
-    () =>
-      setRandomComment(comments[Math.floor(Math.random() * comments.length)]),
-    [comments]
+    () => setRandomComment(comments[Math.floor(Math.random() * comments.length)]),
+    [comments],
   );
 
   return (

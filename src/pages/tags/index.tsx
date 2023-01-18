@@ -57,7 +57,7 @@ export const getStaticProps: GetStaticProps = async (): Promise<{
         queries: { filters: `tags[contains]${tag.id}` },
       });
       return { ...tag, count: blog.totalCount };
-    })
+    }),
   );
 
   return {

@@ -38,14 +38,10 @@ export const MobileBlogList: React.FC<Props> = ({ blog }) => {
                   <div className="px-4 justify-around flex flex-col w-full mt-4">
                     <span className="flex items-center">
                       <BsFillCalendarEventFill className="mr-1 text-gray-500" />
-                      <p className="text-base text-gray-400">
-                        {blog.publishedAt.substring(0, 10)}
-                      </p>
+                      <p className="text-base text-gray-400">{blog.publishedAt.substring(0, 10)}</p>
                     </span>
                     <div className="mt-3">
-                      <p className="text-xl text-left text-gray-600 font-semibold">
-                        {blog.title}
-                      </p>
+                      <p className="text-xl text-left text-gray-600 font-semibold">{blog.title}</p>
                     </div>
                   </div>
                 </div>

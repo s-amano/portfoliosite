@@ -23,14 +23,10 @@ export const BlogIdComponent: React.FC<Props> = React.memo((props: Props) => {
           </span>
         </div>
         <div className="w-full text-left my-2 ml-8 pb-2 border-b-2 px-2">
-          <p className="text-xl md:text-2xl text-black font-bold break-words">
-            {blog.title}
-          </p>
+          <p className="text-xl md:text-2xl text-black font-bold break-words">{blog.title}</p>
         </div>
 
-        <div className="flex pl-2 items-center w-full justify-end">
-          {tagsComponent}
-        </div>
+        <div className="flex pl-2 items-center w-full justify-end">{tagsComponent}</div>
         <div className="mt-6 mx-4">
           <Image
             className="rounded-3xl"
