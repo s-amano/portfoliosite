@@ -1,5 +1,5 @@
 import { GetStaticProps, NextPage } from "next";
-import { client } from "../libs/client";
+import { client } from "../../libs/client";
 import { Layout } from "../components/Layout";
 import { ProfileCard } from "../components/ProfileCard";
 import { SkillType } from "types";

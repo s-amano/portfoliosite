@@ -1,14 +1,14 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import { client } from "../../../libs/client";
+import { client } from "../../../../libs/client";
 import { Layout } from "../../../components/Layout";
 // import { Contents } from "../../../components/Contents";
 import { Pagination } from "../../../components/Pagination";
 import { BlogType, TagType } from "types";
 import useMedia from "use-media";
-import { BlogList } from "components/BlogList";
-import { SidebarWrapLayout } from "components/SidebarWrapLayout";
+import { BlogList } from "@/components/BlogList";
+import { SidebarWrapLayout } from "@/components/SidebarWrapLayout";
 import { useMemo } from "react";
-import { MobileBlogList } from "components/MobileBlogList";
+import { MobileBlogList } from "@/components/MobileBlogList";
 
 interface Props {
   blog: BlogType[];

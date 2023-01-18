@@ -1,5 +1,5 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import { client } from "../../libs/client";
+import { client } from "../../../libs/client";
 import { Layout } from "../../components/Layout";
 import Image from "next/image";
 import { PortfolioType } from "types";

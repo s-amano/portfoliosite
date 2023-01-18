@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { TagType } from "../types";
+import { TagType } from "../../types";
 import { FaHashtag } from "react-icons/fa";
 
 interface Props {
