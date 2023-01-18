@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "next/link";
+// import Link from "next/link";
 import Image from "next/image";
 import { TagList } from "./TagList";
 import { LatestBlogList } from "./LatestBlogList";
@@ -19,17 +19,17 @@ export const BlogSidebar: React.FC<Props> = React.memo((props: Props) => {
         <div className="h-36 flex flex-col justify-center">
           <div className="flex">
             <div className="w-1/3 lg:w-28 flex justify-center mr-2">
-              <Link href={`/profile`} passHref>
-                <a>
-                  <Image
-                    className="rounded-xl"
-                    src={"/nekonew.png"}
-                    width={100}
-                    height={100}
-                    alt="Avatar"
-                  />
-                </a>
-              </Link>
+              {/* <Link href={`/profile`} passHref> */}
+              <a>
+                <Image
+                  className="rounded-xl"
+                  src={"/nekonew.png"}
+                  width={100}
+                  height={100}
+                  alt="Avatar"
+                />
+              </a>
+              {/* </Link> */}
             </div>
             <div className="mt-1 flex flex-col">
               <div>

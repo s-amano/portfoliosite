@@ -10,7 +10,10 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "src/**/*.{js,tsx,ts,tsx}": ["yarn lint","yarn format"]
+    "src/**/*.{js,tsx,ts,tsx}": [
+      "yarn lint",
+      "yarn format"
+    ]
   },
   "husky": {
     "hooks": {
