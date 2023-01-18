@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import "tailwindcss/tailwind.css";
-import * as gtag from "libs/gtag";
+import * as gtag from "@/libs/gtag";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();

@@ -1,6 +1,6 @@
 import { GetStaticProps, NextPage } from "next";
 import React, { useMemo } from "react";
-import { client } from "../../../libs/client";
+import { client } from "../../libs/client";
 import { Layout } from "../../components/Layout";
 import Link from "next/link";
 import { BlogType, TagType } from "types";

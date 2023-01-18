@@ -1,4 +1,4 @@
-import { client } from "../../../libs/client";
+import { client } from "../../libs/client";
 
 export const blogPreview = async (req, res) => {
   // リクエストにスラッグがない場合は404エラーを表示

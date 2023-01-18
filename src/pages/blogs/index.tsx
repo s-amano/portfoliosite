@@ -1,7 +1,7 @@
 import { GetStaticProps, NextPage } from "next";
 import { Layout } from "../../components/Layout";
 // import { Contents } from "../../components/Contents";
-import { client } from "../../../libs/client";
+import { client } from "../../libs/client";
 import { Pagination } from "../../components/Pagination";
 import { BlogType, TagType } from "types";
 import useMedia from "use-media";
