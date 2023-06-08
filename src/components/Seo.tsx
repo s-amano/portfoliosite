@@ -12,7 +12,7 @@ interface Props {
 const Seo: React.FC<Props> = (props: Props) => {
   const { pageTitle, pageDescription, pagePath, pageImg, pageImgWidth, pageImgHeight } = props;
 
-  const defaultTitle = "tenshin-protfolio";
+  const defaultTitle = "天野心太郎のポートフォリオ";
   const defaultDescription = "ポートフォリオサイトです。";
   const defautlImg = "#";
 
