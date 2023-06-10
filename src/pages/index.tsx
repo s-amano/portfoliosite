@@ -11,7 +11,7 @@ interface Props {
 
 export const Home: NextPage<Props> = (props: Props) => {
   return (
-    <Layout pageTitle="home">
+    <Layout pageTitle="天野心太郎">
       <div className="w-full flex flex-col m-6 justify-center items-center md:mt-6">
         <div className="mb-16 w-[360px] md:w-[768px]">
           <ProfileCard />
