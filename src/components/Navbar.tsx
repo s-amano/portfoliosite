@@ -19,6 +19,8 @@ export const Navbar: React.FC = React.memo(() => {
             <NavbarLink navbarLink="/" navbarLinkName="HOME" />
 
             <NavbarLink navbarLink="/blogs" navbarLinkName="BLOG" />
+
+            <NavbarLink navbarLink="/draft" navbarLinkName="DRAFT" />
           </div>
         </div>
       </nav>

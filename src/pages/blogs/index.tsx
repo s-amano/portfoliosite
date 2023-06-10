@@ -73,19 +73,19 @@ export const BlogPage: NextPage<Props> = (props: Props) => {
 export const getStaticProps: GetStaticProps = async () => {
   const offset = 0;
   const limit = PER_PAGE;
-  const queries = { offset: offset, limit: limit };
+  const queries = { offset: offset, limit: limit, filters: `isDraftBlog[equals]false` };
   const data = await client.get({ endpoint: "blogs", queries: queries });
 
-  const tagData = await await client.get({
+  const tagData = await client.get({
     endpoint: "tags",
     queries: { limit: 1000 },
   });
 
   const tags = await Promise.all(
     tagData.contents.map(async (tag: TagType) => {
-      const blog = await await client.get({
+      const blog = await client.get({
         endpoint: "blogs",
-        queries: { filters: `tags[contains]${tag.id}` },
+        queries: { filters: `tags[contains]${tag.id}[and]isDraftBlog[equals]false` },
       });
       return { ...tag, count: blog.totalCount };
     }),
@@ -93,7 +93,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   const latestDataBlog = await client.get({
     endpoint: "blogs",
-    queries: { limit: 8 },
+    queries: { limit: 8, filters: `isDraftBlog[equals]false` },
   });
   return {
     props: {
