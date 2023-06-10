@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Seo from "./Seo";
+import { Navbar } from "./Navbar";
 
 interface Props {
   children: JSX.Element;
@@ -17,7 +18,7 @@ export const Layout: React.FC<Props> = React.memo((props: Props) => {
   const { children, pageTitle, pageDescription, pagePath, pageImg, pageImgWidth, pageImgHeight } =
     props;
   return (
-    <div className="flex justify-center items-center flex-col min-h-screen text-gray-600 text-sm font-mono bg-blue-50">
+    <div className="flex justify-center items-center flex-col min-h-screen text-gray-600 text-sm font-mono bg-gray-100">
       <Seo
         pageTitle={pageTitle}
         pageDescription={pageDescription}
@@ -26,43 +27,7 @@ export const Layout: React.FC<Props> = React.memo((props: Props) => {
         pageImgHeight={pageImgHeight}
         pagePath={pagePath}
       />
-      <header className="mb-8">
-        <nav className="bg-gray-800 w-screen flex items-center md:justify-center">
-          <div className="flex items-center pl-10 h-14 md:w-[960px]">
-            <div className="flex space-x-4">
-              <Link href="/">
-                <a className="md:text-lg text-gray-300 hover:bg-gray-700 p-1 rounded md:p-2">
-                  HOME
-                </a>
-              </Link>
-
-              <Link href="/blogs">
-                <a className="md:text-lg text-gray-300 hover:bg-gray-700 p-1 rounded md:p-2">
-                  BLOG
-                </a>
-              </Link>
-
-              {/* <Link href="/profile">
-                <a className="md:text-lg text-gray-300 hover:bg-gray-700 p-1 rounded md:p-2">
-                  SKILL
-                </a>
-              </Link> */}
-
-              {/* <Link href="/tags">
-                <a className="text-gray-300 hover:bg-gray-700 p-1 rounded md:p-2">
-                  TAG
-                </a>
-              </Link>
-
-              <Link href="/portfolio">
-                <a className="text-gray-300 hover:bg-gray-700 py-1 rounded md:p-2">
-                  PORTFOLIO
-                </a>
-              </Link> */}
-            </div>
-          </div>
-        </nav>
-      </header>
+      <Navbar />
       <main className="flex flex-1 justify-center items-center flex-col w-screen">{children}</main>
       <footer className="w-full h-20 flex justify-center items-center border-t border-gray-300 mb-2 mt-10">
         <Link href="/">

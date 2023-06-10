@@ -41,20 +41,14 @@ export const ProfileCard = React.memo(() => {
         <div className="mt-2 w-80">
           <p className="text-base mt-2 text-black font-bold">
             <span className="flex items-center justify-center">
-              tenshin
+              天野心太郎
               <button onClick={onClickRandomComment}>
                 <GrUpdate className="mx-1" />
               </button>
             </span>
           </p>
 
-          <p className="text-xs mt-2 text-gray-600">{"慶應義塾大学商学部"}</p>
-
-          <p className="text-xs mt-2 text-gray-600">random :{randomComment}</p>
-
-          {/* <p className="text-xs mt-2 text-gray-600">
-            {"ヤクルトとカラオケと猫、十分な睡眠が必要です。"}
-          </p> */}
+          <p className="text-xs mt-2 text-gray-600">{randomComment}</p>
         </div>
         <SnsIcon />
       </div>
