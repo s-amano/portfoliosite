@@ -33,7 +33,7 @@ export const BlogList: React.FC<Props> = ({ blogs }) => {
                   <div>
                     <Image
                       className="rounded-3xl"
-                      src={blog.image.url}
+                      src={blog.image ? blog.image.url : "/nekonew.png"}
                       width={256}
                       height={256}
                       objectFit="cover"

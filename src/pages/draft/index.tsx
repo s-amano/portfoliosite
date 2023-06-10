@@ -35,8 +35,8 @@ export const DraftPage: NextPage<Props> = (props: Props) => {
               }
 
               return (
-                <div className="m-3 w-1/2">
-                  <Link key={draft.id} href={`/draft/${draft.id}`}>
+                <div key={draft.id} className="m-3 w-1/2">
+                  <Link href={`/draft/${draft.id}`}>
                     <a>
                       <div className="ml-2 px-3 justify-around flex flex-col w-full">
                         <span className="flex items-center">

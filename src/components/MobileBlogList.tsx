@@ -27,7 +27,7 @@ export const MobileBlogList: React.FC<Props> = ({ blog }) => {
                 <div className="w-[360px] text-center mb-6 mx-auto flex flex-col bg-white h-96">
                   <div className="">
                     <Image
-                      src={blog.image.url}
+                      src={blog.image ? blog.image.url : "/nekonew.png"}
                       width={360}
                       height={235}
                       objectFit="cover"
