@@ -2,28 +2,33 @@ import { GetStaticProps, NextPage } from "next";
 import { client } from "../libs/client";
 import { Layout } from "../components/Layout";
 import { ProfileCard } from "../components/ProfileCard";
-import { SkillType } from "types";
+import { ExperienceType } from "types";
+import { Experience } from "@/components/Experience";
 
 interface Props {
-  skill: SkillType[];
+  experience: ExperienceType[];
 }
 
 export const Home: NextPage<Props> = (props: Props) => {
-  const { skill } = props;
   return (
     <Layout pageTitle="home">
       <div className="w-full flex flex-col justify-center items-center md:mt-6">
-        <ProfileCard />
+        <div className="mb-16 w-80 md:w-[768px]">
+          <ProfileCard />
+        </div>
+        <div className="w-80 md:w-[768px]">
+          <Experience experience={props.experience} />
+        </div>
       </div>
     </Layout>
   );
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const data = await client.get({ endpoint: "skill" });
+  const data = await client.get({ endpoint: "experience" });
   return {
     props: {
-      skill: data.contents,
+      experience: data.contents,
     },
   };
 };

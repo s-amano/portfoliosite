@@ -14,12 +14,12 @@ const Seo: React.FC<Props> = (props: Props) => {
 
   const defaultTitle = "天野心太郎のポートフォリオ";
   const defaultDescription = "ポートフォリオサイトです。";
-  const defautlImg = "#";
+  const defaultImg = "#";
 
   const title = pageTitle ? `${pageTitle} | ${defaultTitle}` : defaultTitle;
   const description = pageDescription ? pageDescription : defaultDescription;
   const url = pagePath;
-  const imgUrl = pageImg ? pageImg : defautlImg;
+  const imgUrl = pageImg ? pageImg : defaultImg;
   const imgWidth = pageImgWidth ? pageImgWidth : 1200;
   const imgHeight = pageImgHeight ? pageImgHeight : 630;
 

@@ -27,7 +27,7 @@ export const ProfileCard = React.memo(() => {
   );
 
   return (
-    <div className="flex bg-white w-80 md:w-[768px] justify-center rounded-xl p-8 m-6 shadow-xl text-center">
+    <div className="flex bg-white justify-center rounded-xl p-8 m-6 shadow-xl text-center">
       <div>
         <div className="flex justify-center mt-4">
           <Image
