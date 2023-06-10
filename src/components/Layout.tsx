@@ -12,11 +12,20 @@ interface Props {
   pageImg?: string;
   pageImgWidth?: number;
   pageImgHeight?: number;
+  noindex?: boolean;
 }
 
 export const Layout: React.FC<Props> = React.memo((props: Props) => {
-  const { children, pageTitle, pageDescription, pagePath, pageImg, pageImgWidth, pageImgHeight } =
-    props;
+  const {
+    children,
+    pageTitle,
+    pageDescription,
+    pagePath,
+    pageImg,
+    pageImgWidth,
+    pageImgHeight,
+    noindex,
+  } = props;
   return (
     <div className="flex justify-center items-center flex-col min-h-screen text-gray-600 text-sm font-mono bg-gray-100">
       <Seo
@@ -26,6 +35,7 @@ export const Layout: React.FC<Props> = React.memo((props: Props) => {
         pageImgWidth={pageImgWidth}
         pageImgHeight={pageImgHeight}
         pagePath={pagePath}
+        noindex={noindex}
       />
       <Navbar />
       <main className="flex flex-1 justify-center items-center flex-col w-screen">{children}</main>

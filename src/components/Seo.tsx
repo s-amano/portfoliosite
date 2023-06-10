@@ -7,10 +7,12 @@ interface Props {
   pageImg?: string;
   pageImgWidth?: number;
   pageImgHeight?: number;
+  noindex?: boolean;
 }
 
 const Seo: React.FC<Props> = (props: Props) => {
-  const { pageTitle, pageDescription, pagePath, pageImg, pageImgWidth, pageImgHeight } = props;
+  const { pageTitle, pageDescription, pagePath, pageImg, pageImgWidth, pageImgHeight, noindex } =
+    props;
 
   const defaultTitle = "天野心太郎のポートフォリオ";
   const defaultDescription = "ポートフォリオサイトです。";
@@ -42,6 +44,11 @@ const Seo: React.FC<Props> = (props: Props) => {
         rel="stylesheet"
       />
       <link rel="canonical" href={url} />
+      {noindex ? (
+        <meta key="robots" name="robots" content="max-image-preview:large,noindex" />
+      ) : (
+        <meta key="robots" name="robots" content="max-image-preview:large" />
+      )}
     </Head>
   );
 };
