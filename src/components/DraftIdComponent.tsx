@@ -9,7 +9,7 @@ interface Props {
 export const DraftIdComponent: React.FC<Props> = React.memo((props: Props) => {
   const { draft } = props;
   return (
-    <div className="flex justify-center items-center w-[95%] flex-col md:shadow-inner rounded-xl bg-white">
+    <div className="flex justify-center items-center w-[95%] md:w-[80%] flex-col md:shadow-inner rounded-xl bg-white">
       <div className="flex flex-col justify-center items-center w-11/12">
         <div className="flex mt-8 w-full justify-start ml-10">
           <span className="flex items-center mr-2">
@@ -26,7 +26,7 @@ export const DraftIdComponent: React.FC<Props> = React.memo((props: Props) => {
         </div>
 
         <div
-          className="prose my-10 px-4 w-full break-words"
+          className="prose my-10 w-full break-words"
           dangerouslySetInnerHTML={{
             __html: `${draft.body}`,
           }}
