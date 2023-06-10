@@ -13,10 +13,10 @@ export const Home: NextPage<Props> = (props: Props) => {
   return (
     <Layout pageTitle="home">
       <div className="w-full flex flex-col justify-center items-center md:mt-6">
-        <div className="mb-16 w-80 md:w-[768px]">
+        <div className="mb-16 w-[360px] md:w-[768px]">
           <ProfileCard />
         </div>
-        <div className="w-80 md:w-[768px]">
+        <div className="w-[360px] md:w-[768px]">
           <Experience experience={props.experience} />
         </div>
       </div>
