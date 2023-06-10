@@ -14,19 +14,19 @@ interface Props {
 const PER_PAGE = 8;
 
 export const DraftPage: NextPage<Props> = (props: Props) => {
-  const { draft, totalCount } = props;
+  const { draft } = props;
   return (
     <Layout pageTitle="DraftPage" noindex={true}>
       <>
         <div className="w-screen">
           <div className="mt-8 mx-4 text-center">
-            <p className="text-4xl text-black">Draft</p>
+            <p className="text-4xl text-black mb-2">Draft</p>
             <p>公開するほどでもない記事とか下書き記事とかポエム記事とか。</p>
             <p>※本ページと記事はnoindex指定をしています。</p>
           </div>
-          <div className="flex flex-col justify-center items-center mx-4">
+          <div className="flex flex-col justify-center items-center mx-4 mt-4">
             {draft.map((draft) => {
-              const maxLength = 70;
+              const maxLength = 200;
               if (draft.title.length > maxLength) {
                 draft.title = draft.title.substring(0, maxLength) + "...";
               } else {
@@ -34,7 +34,7 @@ export const DraftPage: NextPage<Props> = (props: Props) => {
               }
 
               return (
-                <div key={draft.id} className="m-3 w-1/2">
+                <div key={draft.id} className="m-3 md:w-1/2 w-full">
                   <Link href={`/draft/${draft.id}`}>
                     <a>
                       <div className="ml-2 px-3 justify-around flex flex-col w-full">
@@ -44,8 +44,8 @@ export const DraftPage: NextPage<Props> = (props: Props) => {
                             {draft.publishedAt.substring(0, 10)}
                           </p>
                         </span>
-                        <div>
-                          <p className="text-xl text-left text-black">{draft.title}</p>
+                        <div className="w-full">
+                          <p className="text-left text-black">{draft.title}</p>
                         </div>
                       </div>
                     </a>
