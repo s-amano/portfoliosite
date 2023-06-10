@@ -1,10 +1,9 @@
-import { Layout } from "@/components/Layout";
-import { Pagination } from "@/components/Pagination";
-import { client } from "@/libs/client";
 import { GetStaticProps, NextPage } from "next";
 import Link from "next/link";
 import React from "react";
 import { BsFillCalendarEventFill } from "react-icons/bs";
+import { Layout } from "@/components/Layout";
+import { client } from "@/libs/client";
 import { BlogType } from "types";
 
 interface Props {

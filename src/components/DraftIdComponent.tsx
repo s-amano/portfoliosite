@@ -35,3 +35,5 @@ export const DraftIdComponent: React.FC<Props> = React.memo((props: Props) => {
     </div>
   );
 });
+
+DraftIdComponent.displayName = "DraftIdComponent";

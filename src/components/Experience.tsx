@@ -1,7 +1,7 @@
 import React from "react";
 import { BsRecordCircle } from "react-icons/bs";
-import { ExperienceType } from "types/ExperienceType";
 import useMedia from "use-media";
+import { ExperienceType } from "types/ExperienceType";
 
 interface Props {
   experience: ExperienceType[];

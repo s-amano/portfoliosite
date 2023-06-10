@@ -1,9 +1,9 @@
+import React from "react";
+import { GetStaticProps, NextPage } from "next";
+import Link from "next/link";
 import { DraftIdComponent } from "@/components/DraftIdComponent";
 import { Layout } from "@/components/Layout";
 import { client } from "@/libs/client";
-import { GetStaticProps, NextPage } from "next";
-import Link from "next/link";
-import React from "react";
 import { BlogType } from "types";
 
 interface Props {
