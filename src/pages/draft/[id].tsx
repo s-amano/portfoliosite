@@ -25,7 +25,7 @@ export const DraftId: NextPage<Props> = (props: Props) => {
           </p>
         )}
 
-        <div className="flex items-center flex-col md:w-[70%] mt-4">
+        <div className="flex items-center flex-col w-full md:w-[70%] mt-4">
           <DraftIdComponent draft={draft} />
         </div>
       </>

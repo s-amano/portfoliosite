@@ -35,7 +35,9 @@ export const Experience: React.FC<Props> = React.memo((props: Props) => {
         <div className="w-full flex flex-col">
           <p className="text-xl font-bold mb-1">{experience.title}</p>
           <div className="flex">
-            <p className="text-gray-600 mr-3 mb-1">{experience.position}</p>
+            <p className="text-gray-600 mr-2 mb-1">{experience.position}</p>
+            {"-"}
+            <p className="ml-2">{experience.jobType}</p>
           </div>
           <p className="font-medium md:text-sm w-[90%]">{experience.work}</p>
         </div>
@@ -52,7 +54,9 @@ export const Experience: React.FC<Props> = React.memo((props: Props) => {
         </div>
         <div className="w-full flex flex-col">
           <p className="text-lg font-bold">{experience.title}</p>
-          <p className="text-gray-800 mr-3">{experience.position}</p>
+          <div className="flex">
+            <p className="text-gray-800">{`${experience.position}(${experience.jobType})`}</p>
+          </div>
           <p className="text-xs text-gray-500">
             {experience.startAt.substring(0, 7).replace("-", "/")} ~{" "}
             {experience.endAt.substring(0, 7).replace("-", "/")}

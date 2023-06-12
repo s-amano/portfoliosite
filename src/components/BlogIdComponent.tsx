@@ -22,7 +22,7 @@ export const BlogIdComponent: React.FC<Props> = React.memo((props: Props) => {
             </p>
           </span>
         </div>
-        <div className="w-full text-left my-2 ml-8 pb-2 border-b-2 px-2">
+        <div className="w-full text-left my-2 pb-2 border-b-2 px-2">
           <p className="text-xl md:text-2xl text-black font-bold break-words">{blog.title}</p>
         </div>
 
