@@ -14,7 +14,7 @@ interface Props {
 export const DraftId: NextPage<Props> = (props: Props) => {
   const { draft, preview } = props;
   return (
-    <Layout pageTitle="draftId" noindex={true}>
+    <Layout pageTitle="draftId" noindex={draft.isNoindex ? draft.isNoindex : false}>
       <>
         {preview && (
           <p className={"bg-yellow-100 text-yellow-900 p-4 text-center"}>

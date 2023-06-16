@@ -14,8 +14,8 @@ const Seo: React.FC<Props> = (props: Props) => {
   const { pageTitle, pageDescription, pagePath, pageImg, pageImgWidth, pageImgHeight, noindex } =
     props;
 
-  const defaultTitle = "天野心太郎のポートフォリオ";
-  const defaultDescription = "ポートフォリオサイトです。";
+  const defaultTitle = "天野心太郎のサイト";
+  const defaultDescription = "天野のサイトです。";
   const defaultImg = "#";
 
   const title = pageTitle ? `${pageTitle} | ${defaultTitle}` : defaultTitle;

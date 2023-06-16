@@ -6,4 +6,5 @@ export interface BlogType extends MicroCMSType {
   image: ImageType;
   tags?: TagType[];
   isDraftBlog: boolean;
+  isNoindex: boolean;
 }
