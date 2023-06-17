@@ -32,14 +32,14 @@ export const BlogPageId: NextPage<Props> = (props: Props) => {
 
   const memorizedBlogList = useMemo(
     () => (
-      <div className="flex items-center flex-col md:w-2/3 xl:w-3/4 mt-4">
+      <>
         <BlogList blogs={blog} />
         <Pagination
           currentPageNumber={currentPageNumber}
           maxPageNumber={Math.ceil(totalCount / PER_PAGE)}
           whatPage={"blogs"}
         />
-      </div>
+      </>
     ),
     [blog, currentPageNumber, totalCount],
   );
@@ -89,8 +89,11 @@ export const getStaticProps: GetStaticProps = async (
   const numId = Number(context.params?.id);
   const offset = (numId - 1) * PER_PAGE;
   const limit = PER_PAGE;
-  const queries = { offset: offset, limit: limit };
-  const data = await client.get({ endpoint: "blogs", queries: queries });
+  const queries = { offset: offset, limit: limit, filters: `isDraftBlog[equals]false` };
+  const data = await client.get({
+    endpoint: "blogs",
+    queries: queries,
+  });
 
   const tagData = await await client.get({
     endpoint: "tags",
@@ -101,7 +104,7 @@ export const getStaticProps: GetStaticProps = async (
     tagData.contents.map(async (tag: TagType) => {
       const blog = await await client.get({
         endpoint: "blogs",
-        queries: { filters: `tags[contains]${tag.id}` },
+        queries: { filters: `tags[contains]${tag.id}[and]isDraftBlog[equals]false` },
       });
       return { ...tag, count: blog.totalCount };
     }),
@@ -109,7 +112,7 @@ export const getStaticProps: GetStaticProps = async (
 
   const latestDataBlog = await client.get({
     endpoint: "blogs",
-    queries: { limit: 8 },
+    queries: { limit: 8, filters: `isDraftBlog[equals]false` },
   });
 
   return {
