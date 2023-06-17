@@ -74,7 +74,10 @@ export const BlogPageId: NextPage<Props> = (props: Props) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const range = (start, end) => [...Array(end - start + 1)].map((_, i) => start + i);
-  const data = await client.get({ endpoint: "blogs" });
+  const data = await client.get({
+    endpoint: "blogs",
+    queries: { filters: `isDraftBlog[equals]false` },
+  });
 
   const { totalCount } = data;
   const paths = range(1, Math.ceil(totalCount / PER_PAGE)).map((i) => `/blogs/page/${i}`);
