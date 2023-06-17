@@ -5,6 +5,7 @@ import { TagList } from "./TagList";
 import { LatestBlogList } from "./LatestBlogList";
 import { SnsIcon } from "@/components/SnsIcon";
 import { TagType, BlogType } from "types";
+import { SearchInput } from "@/components/SearchInput";
 
 interface Props {
   latestBlog: BlogType[];
@@ -15,6 +16,7 @@ export const BlogSidebar: React.FC<Props> = React.memo((props: Props) => {
   const { latestBlog, sortedTag } = props;
   return (
     <>
+      <SearchInput />
       <div className="bg-white text-center shadow-xl p-4 rounded-xl w-full">
         <div className="h-36 flex flex-col justify-center">
           <div className="flex">

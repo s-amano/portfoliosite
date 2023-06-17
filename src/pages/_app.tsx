@@ -1,9 +1,12 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import "tailwindcss/tailwind.css";
 import * as gtag from "@/libs/gtag";
+import { SearchContext } from "@/context/searchContext";
+import { SearchQuery } from "types";
 
 function MyApp({ Component, pageProps }) {
+  const [blogSearch, setBlogSearch] = useState<string>("");
   const router = useRouter();
   useEffect(() => {
     const handleRouteChange = (url) => {
@@ -14,7 +17,26 @@ function MyApp({ Component, pageProps }) {
       router.events.off("routeChangeComplete", handleRouteChange);
     };
   }, [router.events]);
-  return <Component {...pageProps} />;
+
+  useEffect(() => {
+    const urlQuery = router.query as SearchQuery;
+    if (urlQuery && urlQuery.keyword) {
+      setBlogSearch(urlQuery.keyword);
+    } else {
+      setBlogSearch("");
+    }
+  }, [router]);
+
+  return (
+    <SearchContext.Provider
+      value={{
+        blogSearch,
+        setBlogSearch,
+      }}
+    >
+      <Component {...pageProps} />
+    </SearchContext.Provider>
+  );
 }
 
 export default MyApp;
