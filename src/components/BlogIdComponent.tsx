@@ -30,8 +30,8 @@ export const BlogIdComponent: React.FC<Props> = React.memo((props: Props) => {
         <div className="mt-6 mx-4">
           <Image
             className="rounded-3xl"
-            src={blog.image.url}
-            width={600}
+            src={blog.image ? blog.image.url : "/nekonew.png"}
+            width={400}
             height={400}
             alt="blogimg"
           ></Image>
