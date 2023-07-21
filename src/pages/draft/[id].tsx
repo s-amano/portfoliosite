@@ -39,7 +39,7 @@ const isDraft = (item: any): item is { draftKey: string } =>
 export const getStaticPaths = async () => {
   const data = await client.get({
     endpoint: "blogs",
-    queries: { filters: `isDraftBlog[equals]true` },
+    queries: { filters: `isDraftBlog[equals]true`, limit: 1000 },
   });
 
   const paths = data.contents.map((content) => `/draft/${content.id}`);
